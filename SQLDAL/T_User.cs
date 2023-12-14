@@ -34,12 +34,11 @@ namespace SQLDAL
             DateTime SysBeginTime;
             DateTime SysEndTime;
             DateTime NowTime = DateTime.Now;
-            JObject jsonObj = JObject.Parse(SqlDbHelper.json);
-            var SysTime = jsonObj["AppSettings"]["SystemTimeSetting"] as JObject;
-            if (SysTime != null && SysTime.HasValues)
+            var Timesetting = db.Queryable<DSS_3_8_TimeSetting>().Where(it => it.TimeType == "SysTime").ToList();
+            if (Timesetting.Count > 0)
             {
-                string BeginTime = SysTime["BeginTime"].ToString();
-                string EndTime = SysTime["EndTime"].ToString();
+                string BeginTime = Timesetting[0].BeginTime.ToString();
+                string EndTime = Timesetting[0].EndTime.ToString();
                 SysBeginTime = DateTime.ParseExact(BeginTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 SysEndTime = DateTime.ParseExact(EndTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 if (NowTime >= SysBeginTime && NowTime <= SysEndTime)
