@@ -22,8 +22,9 @@ namespace WinForm
         SqlSugarClient db = SqlSugarHelper.GetSugarClient();
         private void Message_Load(object sender, EventArgs e)
         {
-            var latestRecords = db.Queryable<DSS_3_8_Messaging>().OrderByDescending(it => it.MessageID).Take(20).ToList();
-            for (int i = latestRecords.Count - 1; i > 0; i--)
+            panel1.Controls.Clear();
+            var latestRecords = db.Queryable<DSS_3_8_Messaging>().OrderByDescending(it => it.MessageID).Take(40).ToList();
+            for (int i = latestRecords.Count - 1; i >= 0; i--)
             {
                 TextBox textBox = new TextBox();
                 textBox.Text = latestRecords[i].MessageType + "\r\n" + latestRecords[i].Timestamp;             // 设置文本框显示的内容

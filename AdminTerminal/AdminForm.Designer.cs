@@ -31,12 +31,6 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             panel1 = new Panel();
-            panel8 = new Panel();
-            panel14 = new Panel();
-            button10 = new Button();
-            button4 = new Button();
-            panel13 = new Panel();
-            button9 = new Button();
             panel6 = new Panel();
             panel19 = new Panel();
             button15 = new Button();
@@ -55,6 +49,12 @@
             button6 = new Button();
             panel7 = new Panel();
             button3 = new Button();
+            panel8 = new Panel();
+            panel14 = new Panel();
+            button10 = new Button();
+            button4 = new Button();
+            panel13 = new Panel();
+            button9 = new Button();
             panel2 = new Panel();
             panel5 = new Panel();
             panel3 = new Panel();
@@ -65,14 +65,12 @@
             button7 = new Button();
             label2 = new Label();
             panel4 = new Panel();
+            button11 = new Button();
             BtnTimer1 = new System.Windows.Forms.Timer(components);
             BtnTimer2 = new System.Windows.Forms.Timer(components);
             BtnTimer3 = new System.Windows.Forms.Timer(components);
             BtnTimer4 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
-            panel8.SuspendLayout();
-            panel14.SuspendLayout();
-            panel13.SuspendLayout();
             panel6.SuspendLayout();
             panel19.SuspendLayout();
             panel20.SuspendLayout();
@@ -82,6 +80,9 @@
             panel16.SuspendLayout();
             panel10.SuspendLayout();
             panel7.SuspendLayout();
+            panel8.SuspendLayout();
+            panel14.SuspendLayout();
+            panel13.SuspendLayout();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
             panel3.SuspendLayout();
@@ -117,89 +118,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(210, 753);
             panel1.TabIndex = 1;
-            // 
-            // panel8
-            // 
-            panel8.Controls.Add(panel14);
-            panel8.Controls.Add(button4);
-            panel8.Controls.Add(panel13);
-            panel8.Location = new Point(0, 270);
-            panel8.Margin = new Padding(0);
-            panel8.MaximumSize = new Size(210, 140);
-            panel8.MinimumSize = new Size(210, 60);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(210, 60);
-            panel8.TabIndex = 2;
-            // 
-            // panel14
-            // 
-            panel14.Controls.Add(button10);
-            panel14.Location = new Point(0, 100);
-            panel14.Margin = new Padding(0);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(210, 40);
-            panel14.TabIndex = 5;
-            // 
-            // button10
-            // 
-            button10.BackColor = Color.FromArgb(45, 90, 152);
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button10.ForeColor = Color.White;
-            button10.Location = new Point(0, 0);
-            button10.Margin = new Padding(0);
-            button10.Name = "button10";
-            button10.Size = new Size(210, 40);
-            button10.TabIndex = 4;
-            button10.Text = "手动调整";
-            button10.UseVisualStyleBackColor = false;
-            button10.Click += button10_Click;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(45, 90, 152);
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.ForeColor = Color.White;
-            button4.Image = Properties.Resources._6f1cf4c7b1af063c7bf7a7673cd5faa;
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(-5, -5);
-            button4.Margin = new Padding(0);
-            button4.Name = "button4";
-            button4.Padding = new Padding(15);
-            button4.Size = new Size(220, 65);
-            button4.TabIndex = 1;
-            button4.Text = "        组队分配设置";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
-            // 
-            // panel13
-            // 
-            panel13.Controls.Add(button9);
-            panel13.Location = new Point(0, 60);
-            panel13.Margin = new Padding(0);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(210, 40);
-            panel13.TabIndex = 3;
-            // 
-            // button9
-            // 
-            button9.BackColor = Color.FromArgb(45, 90, 152);
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatStyle = FlatStyle.Flat;
-            button9.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button9.ForeColor = Color.White;
-            button9.Location = new Point(0, 0);
-            button9.Margin = new Padding(0);
-            button9.Name = "button9";
-            button9.Size = new Size(210, 40);
-            button9.TabIndex = 4;
-            button9.Text = "自动分配";
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += button9_Click;
             // 
             // panel6
             // 
@@ -451,6 +369,90 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // panel8
+            // 
+            panel8.Controls.Add(button10);
+            panel8.Controls.Add(panel14);
+            panel8.Controls.Add(button4);
+            panel8.Controls.Add(panel13);
+            panel8.Location = new Point(0, 270);
+            panel8.Margin = new Padding(0);
+            panel8.MaximumSize = new Size(210, 180);
+            panel8.MinimumSize = new Size(210, 60);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(210, 60);
+            panel8.TabIndex = 2;
+            // 
+            // panel14
+            // 
+            panel14.Controls.Add(button9);
+            panel14.Location = new Point(0, 100);
+            panel14.Margin = new Padding(0);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(210, 40);
+            panel14.TabIndex = 5;
+            // 
+            // button10
+            // 
+            button10.BackColor = Color.FromArgb(45, 90, 152);
+            button10.FlatAppearance.BorderSize = 0;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button10.ForeColor = Color.White;
+            button10.Location = new Point(0, 140);
+            button10.Margin = new Padding(0);
+            button10.Name = "button10";
+            button10.Size = new Size(210, 40);
+            button10.TabIndex = 4;
+            button10.Text = "手动调整";
+            button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(45, 90, 152);
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.ForeColor = Color.White;
+            button4.Image = Properties.Resources._6f1cf4c7b1af063c7bf7a7673cd5faa;
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(-5, -5);
+            button4.Margin = new Padding(0);
+            button4.Name = "button4";
+            button4.Padding = new Padding(15);
+            button4.Size = new Size(220, 65);
+            button4.TabIndex = 1;
+            button4.Text = "        组队分配设置";
+            button4.TextAlign = ContentAlignment.MiddleLeft;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // panel13
+            // 
+            panel13.Controls.Add(button11);
+            panel13.Location = new Point(0, 60);
+            panel13.Margin = new Padding(0);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(210, 40);
+            panel13.TabIndex = 3;
+            // 
+            // button9
+            // 
+            button9.BackColor = Color.FromArgb(45, 90, 152);
+            button9.FlatAppearance.BorderSize = 0;
+            button9.FlatStyle = FlatStyle.Flat;
+            button9.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button9.ForeColor = Color.White;
+            button9.Location = new Point(0, 0);
+            button9.Margin = new Padding(0);
+            button9.Name = "button9";
+            button9.Size = new Size(210, 40);
+            button9.TabIndex = 4;
+            button9.Text = "自动分配";
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
+            // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(45, 90, 152);
@@ -584,6 +586,22 @@
             panel4.Size = new Size(872, 673);
             panel4.TabIndex = 0;
             // 
+            // button11
+            // 
+            button11.BackColor = Color.FromArgb(45, 90, 152);
+            button11.FlatAppearance.BorderSize = 0;
+            button11.FlatStyle = FlatStyle.Flat;
+            button11.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button11.ForeColor = Color.White;
+            button11.Location = new Point(0, 0);
+            button11.Margin = new Padding(0);
+            button11.Name = "button11";
+            button11.Size = new Size(210, 40);
+            button11.TabIndex = 5;
+            button11.Text = "规则设置";
+            button11.UseVisualStyleBackColor = false;
+            button11.Click += button11_Click;
+            // 
             // BtnTimer1
             // 
             BtnTimer1.Interval = 10;
@@ -618,9 +636,6 @@
             Text = "AdminForm";
             FormClosing += AdminForm_FormClosing;
             panel1.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel14.ResumeLayout(false);
-            panel13.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel19.ResumeLayout(false);
             panel20.ResumeLayout(false);
@@ -630,6 +645,9 @@
             panel16.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel7.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            panel14.ResumeLayout(false);
+            panel13.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -680,5 +698,6 @@
         private Panel panel18;
         private Button button14;
         private System.Windows.Forms.Timer BtnTimer4;
+        private Button button11;
     }
 }

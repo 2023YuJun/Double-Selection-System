@@ -330,10 +330,8 @@ namespace AdminTerminal
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            // 检查选择的值是否在下拉框的选项中
             if (!comboBox.Items.Contains(comboBox.Text))
             {
-                // 如果选择的值不在选项中，将下拉框文本设置为特定字符串
                 comboBox.Text = "专业";
             }
         }
@@ -341,10 +339,8 @@ namespace AdminTerminal
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            // 检查选择的值是否在下拉框的选项中
             if (!comboBox.Items.Contains(comboBox.Text))
             {
-                // 如果选择的值不在选项中，将下拉框文本设置为特定字符串
                 comboBox.Text = "年级";
             }
         }
@@ -352,10 +348,8 @@ namespace AdminTerminal
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            // 检查选择的值是否在下拉框的选项中
             if (!comboBox.Items.Contains(comboBox.Text))
             {
-                // 如果选择的值不在选项中，将下拉框文本设置为特定字符串
                 comboBox.Text = "学院";
             }
         }
@@ -363,10 +357,8 @@ namespace AdminTerminal
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            // 检查选择的值是否在下拉框的选项中
             if (!comboBox.Items.Contains(comboBox.Text))
             {
-                // 如果选择的值不在选项中，将下拉框文本设置为特定字符串
                 comboBox.Text = "专业";
             }
         }

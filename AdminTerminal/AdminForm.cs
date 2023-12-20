@@ -162,6 +162,14 @@ namespace AdminTerminal
             Ftool.Cheak_click(button10, ftool.C_btn);
             ftool.C_btn = button10;
         }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            //组队规则
+            Ftool.Cheak_click(button11, ftool.C_btn);
+            ftool.C_btn = button11;
+            TeamRuleSettingForm teamRuleSettingForm = new TeamRuleSettingForm();
+            Ftool.Showform(panel4, teamRuleSettingForm);
+        }
         private void button12_Click(object sender, EventArgs e)
         {
             Ftool.Cheak_click(button12, ftool.C_btn);
@@ -317,7 +325,6 @@ namespace AdminTerminal
 
             }
         }
-
 
 
     }
