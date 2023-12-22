@@ -35,7 +35,10 @@ namespace TeacherTerminal
                 UserHelper.bios = null;
                 UserHelper.biot = null;
                 UserHelper.bioteam = null;
-                UserHelper.tc = null;
+                UserHelper.timesetting = null;
+                UserHelper.bioadm = null;
+                UserHelper.choice = null;
+                UserHelper.choicesetting = null;
             }
         }
     }

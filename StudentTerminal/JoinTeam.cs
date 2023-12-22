@@ -16,87 +16,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentTerminal
-{ 
+{
     public partial class JoinTeam : Form
     {
         public JoinTeam()
         {
             InitializeComponent();
         }
-        SqlSugarClient db = SqlSugarHelper.GetSugarClient();
+        private int currentPage = 1;
+        private int totalPages = 1;
+        static SqlSugarClient db = SqlSugarHelper.GetSugarClient();
+        static int teampersonsize = int.Parse(db.Queryable<DSS_3_8_ChoiceSetting>().First().TeamPersonSize);
         private void JoinTeam_Load(object sender, EventArgs e)
         {
+            LoadDGV();
             comboBox.Items.Clear();
-            comboBox.Items.AddRange(new object[] { "所有队伍信息", "队伍名称查询", "队长名称查询", "课题名称查询" });
+            comboBox.Items.AddRange(new object[] { "所有队伍信息", "队伍名称查询", "成员名称查询", "课题名称查询" });
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var query = db.Queryable<DSS_3_8_BIOTEAM>();
-            if (comboBox.Text == "队伍名称查询")
-            {
-                query = query.Where(it => it.YourTeam == textBox1.Text.Trim());
-            }
-            else if (comboBox.Text == "队长名称查询")
-            {
-                query = query.Where(it => it.TL == textBox1.Text.Trim());
-            }
-            else if (comboBox.Text == "课题名称查询")
-            {
-                query = query.Where(it => it.TopicName == textBox1.Text.Trim());
-            }
-            else if (comboBox.Text == "所有队伍信息") ;
-            dataGridView.DataSource = query.Select(it => new
-            {
-                队伍名称 = it.YourTeam,
-                队内人数 = it.Number,
-                队长 = it.TL,
-                队员一 = it.TM1,
-                队员二 = it.TM2,
-                队员三 = it.TM3,
-                课题名 = it.TopicName
-            }).ToList();
-
-            #region 优化前
-            //string cmd = "SELECT YourTeam as '队伍名称', Number as '队内人数', TL as '队长', TM1 as '队员一', TM2 as '队员二', TM3 as '队员三', TopicName as '课题名' FROM [DSS_3_8_BIOTEAM]";
-
-            //if (comboBox.Text == "队伍名称查询" || comboBox.Text == "队长名称查询" || comboBox.Text == "课题名称查询")
-            //{
-            //    string filterColumn = "YourTeam";               // 默认过滤列
-            //    string parameterName = "@FilterValue";          // 默认参数名
-
-            //    if (comboBox.Text == "队长名称查询")
-            //    {
-            //        filterColumn = "TL";
-            //    }
-            //    else if (comboBox.Text == "课题名称查询")
-            //    {
-            //        filterColumn = "TopicName";
-            //    }
-
-            //    cmd += $" WHERE {filterColumn} = {parameterName}";
-
-            //    SqlParameter[] parameters =
-            //    {
-            //        new SqlParameter(parameterName, SqlDbType.NVarChar, 50)
-            //    };
-
-            //    parameters[0].Value = textBox1.Text.Trim();
-
-            //    System.Data.DataTable dt = new System.Data.DataTable();
-            //    dt = SqlDbHelper.ExecuteDataTable(cmd, CommandType.Text, parameters);
-            //    dataGridView.DataSource = dt;
-            //}
-            //else if (comboBox.Text == "所有队伍信息")
-            //{
-            //    System.Data.DataTable dt = new System.Data.DataTable();
-            //    dt = SqlDbHelper.ExecuteDataTable(cmd);
-            //    dataGridView.DataSource = dt;
-            //}
-            #endregion
+            LoadDGV();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow;
             string? teamName = null;
@@ -112,7 +55,7 @@ namespace StudentTerminal
                 MessageBox.Show("信息选择错误，无法加入队伍");
                 return;
             }
-             
+
 
             if (HasTeam(UserHelper.bios.StudentName))
             {
@@ -120,37 +63,28 @@ namespace StudentTerminal
                 return;
             }
 
-            if (!int.TryParse(teamSizeStr, out int teamSize) && teamSize >= 4)
+            if (!int.TryParse(teamSizeStr, out int teamSize) && teamSize >= teampersonsize)
             {
-                MessageBox.Show("你无法加入该队伍");
+                MessageBox.Show("你无法加入该队伍，人数已达上限");
             }
             else
             {
-                var team = db.Queryable<DSS_3_8_BIOTEAM>().Where(it => it.YourTeam == teamName).First();
-
+                var team = db.Queryable<DSS_3_8_BIOTEAM>().Where(it => it.TeamName == teamName).First();
                 if (team != null)
                 {
                     // 递增队伍人数
-                    team.Number += 1;
-
-                    // 分配学生至队员
-                    if (team.TM1 == null)
-                    {
-                        team.TM1 = UserHelper.bios.StudentName;
-                    }
-                    else if (team.TM2 == null)
-                    {
-                        team.TM2 = UserHelper.bios.StudentName;
-                    }
-                    else if (team.TM3 == null)
-                    {
-                        team.TM3 = UserHelper.bios.StudentName;
-                    }
-
-                    // 更新数据库
+                    team.Number = (1 + int.Parse(team.Number)).ToString();
                     var affectedRows = db.Updateable(team)
-                                        .UpdateColumns(it => new { it.Number, it.TM1, it.TM2, it.TM3 })
+                                        .Where(it => it.TeamID == team.TeamID)
+                                        .UpdateColumns(it => new { it.Number })
                                         .ExecuteCommand();
+
+                    DSS_3_8_Choice dSS_3_8_Choice = new DSS_3_8_Choice();
+                    dSS_3_8_Choice.ChoiceType = "TM";
+                    dSS_3_8_Choice.ChoiceName = UserHelper.bios.StudentName;
+                    dSS_3_8_Choice.Tag = team.TeamID.ToString();
+                    var insert = db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+
                     DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();
                     dSS_3_8_BIOS.Duty = "队员";
                     dSS_3_8_BIOS.YourTeam = teamName;
@@ -158,7 +92,7 @@ namespace StudentTerminal
                                 .Where(it => it.Account == UserHelper.bios.Account)
                                 .UpdateColumns(it => new { it.Duty, it.YourTeam })
                                 .ExecuteCommand();
-                    if (affectedRows > 0 && Update > 0 ) 
+                    if (affectedRows > 0 && Update > 0 && insert > 0)
                     {
                         UserHelper.bios.Duty = "队员";
                         UserHelper.bios.YourTeam = teamName;
@@ -170,8 +104,98 @@ namespace StudentTerminal
 
         private bool HasTeam(string currentUser)
         {
-            var HasTeamQuery = db.Queryable<DSS_3_8_BIOTEAM>().Where(it => it.TL == currentUser || it.TM1 == currentUser || it.TM2 == currentUser || it.TM3 == currentUser).First();
-            return HasTeamQuery != null;
+            var checkTeamQuery = db
+                .Queryable<DSS_3_8_Choice, DSS_3_8_BIOTEAM>((t1, t2) => t1.Tag == t2.TeamID.ToString())
+                .Where("ChoiceType LIKE @ChoiceType", new { ChoiceType = "%TM%" })
+                .Where(t1 => t1.ChoiceName == currentUser)
+                .Any();             
+            return checkTeamQuery;
         }
+
+        #region DGV分页
+        private void button3_Click(object sender, EventArgs e)
+        {
+            currentPage = 1; // 跳转到第一页，更新 currentPage
+            LoadDGV(currentPage);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--; // 上一页，更新 currentPage
+                LoadDGV(currentPage);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++; // 下一页，更新 currentPage
+                LoadDGV(currentPage);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            currentPage = totalPages; // 跳转到最后一页，更新 currentPage
+            LoadDGV(currentPage);
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                int pageNumber;
+                if (int.TryParse(textBox2.Text, out pageNumber))
+                {
+                    currentPage = Math.Max(1, Math.Min(totalPages, pageNumber)); // 更新 currentPage
+                    LoadDGV(currentPage);
+                }
+                else
+                {
+                    MessageBox.Show("页数无效");
+                }
+            }
+        }
+
+        private void LoadDGV(int currentPage = 1)
+        {
+            var query = db.Queryable<DSS_3_8_Choice, DSS_3_8_BIOTEAM>((t1, t2) => t1.Tag == t2.TeamID.ToString());
+            if (comboBox.Text == "队伍名称搜索")
+            {
+                query = query.Where((t1, t2) => t2.TeamName == textBox1.Text.Trim() && t1.ChoiceType != "TC");
+            }
+            else if (comboBox.Text == "课题名称搜索")
+            {
+                query = query.Where((t1, t2) => t2.TopicName == textBox1.Text.Trim() && t1.ChoiceType != "TC");
+            }
+            else if (comboBox.Text == "成员名称搜索")
+            {
+                query = query.Where((t1, t2) => t1.ChoiceName == textBox1.Text.Trim() && t1.ChoiceType != "TC");
+            }
+            else
+            {
+                query = query.Where("ChoiceType LIKE @ChoiceType", new { ChoiceType = "%TM%" });
+            }
+            // 执行分页查询
+            int visibleRowCount = dataGridView.Height / dataGridView.RowTemplate.Height;
+            int rowCountPerPage = visibleRowCount; // 每页显示的行数与可见行数一致
+            int totalCount = query.Count();
+            totalPages = (int)Math.Ceiling((double)totalCount / rowCountPerPage);
+            currentPage = Math.Min(Math.Max(1, currentPage), totalPages);
+            var result = query.Select((t1, t2) => new
+            {
+                队伍ID = t2.TeamID,
+                队伍名称 = t2.TeamName,
+                队内人数 = t2.Number,
+                成员类型 = t1.ChoiceType,
+                成员名称 = t1.ChoiceName,
+                课题名 = t2.TopicName
+            }).ToPageList(currentPage, rowCountPerPage);
+            dataGridView.DataSource = result.ToList();
+        }
+        #endregion
     }
 }

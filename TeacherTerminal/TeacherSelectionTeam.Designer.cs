@@ -29,238 +29,127 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel8 = new Panel();
+            panel4 = new Panel();
             panel3 = new Panel();
             textBox2 = new TextBox();
-            label2 = new Label();
-            panel6 = new Panel();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            panel7 = new Panel();
-            textBox6 = new TextBox();
-            label6 = new Label();
-            panel5 = new Panel();
-            textBox4 = new TextBox();
-            label4 = new Label();
-            panel4 = new Panel();
-            textBox3 = new TextBox();
-            label3 = new Label();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
             button2 = new Button();
-            dataGridView1 = new DataGridView();
+            dataGridView = new DataGridView();
             panel2 = new Panel();
             button1 = new Button();
             textBox1 = new TextBox();
             comboBox = new ComboBox();
             label1 = new Label();
             panel1.SuspendLayout();
-            panel8.SuspendLayout();
             panel3.SuspendLayout();
-            panel6.SuspendLayout();
-            panel7.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(211, 226, 244);
-            panel1.Controls.Add(panel8);
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(panel3);
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(dataGridView);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(20, 20);
             panel1.Name = "panel1";
             panel1.Size = new Size(840, 640);
             panel1.TabIndex = 0;
             // 
-            // panel8
+            // panel4
             // 
-            panel8.Controls.Add(panel3);
-            panel8.Controls.Add(panel6);
-            panel8.Controls.Add(panel7);
-            panel8.Controls.Add(panel5);
-            panel8.Controls.Add(panel4);
-            panel8.Location = new Point(20, 450);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(800, 110);
-            panel8.TabIndex = 8;
+            panel4.AutoScroll = true;
+            panel4.Location = new Point(570, 76);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(250, 466);
+            panel4.TabIndex = 15;
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel3.Controls.Add(textBox2);
-            panel3.Controls.Add(label2);
-            panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(0);
+            panel3.Controls.Add(button6);
+            panel3.Controls.Add(button5);
+            panel3.Controls.Add(button4);
+            panel3.Controls.Add(button3);
+            panel3.Location = new Point(46, 546);
             panel3.Name = "panel3";
-            panel3.Size = new Size(240, 50);
-            panel3.TabIndex = 6;
+            panel3.Size = new Size(489, 33);
+            panel3.TabIndex = 14;
             // 
             // textBox2
             // 
-            textBox2.BackColor = Color.White;
             textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(76, 14);
-            textBox2.Multiline = true;
+            textBox2.Font = new Font("Microsoft YaHei UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.Location = new Point(205, 2);
+            textBox2.Margin = new Padding(0);
             textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.ScrollBars = ScrollBars.Vertical;
-            textBox2.Size = new Size(160, 25);
-            textBox2.TabIndex = 1;
-            textBox2.MouseDown += textBox2_MouseDown;
+            textBox2.Size = new Size(81, 27);
+            textBox2.TabIndex = 0;
+            textBox2.Text = "1";
+            textBox2.TextAlign = HorizontalAlignment.Center;
+            textBox2.KeyPress += textBox2_KeyPress;
             // 
-            // label2
+            // button6
             // 
-            label2.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(3, 14);
-            label2.Name = "label2";
-            label2.Size = new Size(80, 25);
-            label2.TabIndex = 0;
-            label2.Text = "队伍1";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            button6.BackColor = Color.White;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.Location = new Point(368, 2);
+            button6.Name = "button6";
+            button6.Size = new Size(70, 27);
+            button6.TabIndex = 11;
+            button6.Text = ">>";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
-            // panel6
+            // button5
             // 
-            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel6.Controls.Add(textBox5);
-            panel6.Controls.Add(label5);
-            panel6.Location = new Point(0, 60);
-            panel6.Margin = new Padding(0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(240, 50);
-            panel6.TabIndex = 7;
+            button5.BackColor = Color.White;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.Location = new Point(292, 2);
+            button5.Name = "button5";
+            button5.Size = new Size(70, 27);
+            button5.TabIndex = 10;
+            button5.Text = ">";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
-            // textBox5
+            // button4
             // 
-            textBox5.BackColor = Color.White;
-            textBox5.BorderStyle = BorderStyle.None;
-            textBox5.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(76, 14);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.ScrollBars = ScrollBars.Vertical;
-            textBox5.Size = new Size(160, 25);
-            textBox5.TabIndex = 1;
-            textBox5.MouseDown += textBox5_MouseDown;
+            button4.BackColor = Color.White;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(130, 2);
+            button4.Name = "button4";
+            button4.Size = new Size(70, 27);
+            button4.TabIndex = 9;
+            button4.Text = "<";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
-            // label5
+            // button3
             // 
-            label5.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(3, 14);
-            label5.Name = "label5";
-            label5.Size = new Size(80, 25);
-            label5.TabIndex = 0;
-            label5.Text = "队伍4";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // panel7
-            // 
-            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel7.Controls.Add(textBox6);
-            panel7.Controls.Add(label6);
-            panel7.Location = new Point(280, 60);
-            panel7.Margin = new Padding(0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(240, 50);
-            panel7.TabIndex = 7;
-            // 
-            // textBox6
-            // 
-            textBox6.BackColor = Color.White;
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox6.Location = new Point(76, 14);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.ScrollBars = ScrollBars.Vertical;
-            textBox6.Size = new Size(160, 25);
-            textBox6.TabIndex = 1;
-            textBox6.MouseDown += textBox6_MouseDown;
-            // 
-            // label6
-            // 
-            label6.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(3, 14);
-            label6.Name = "label6";
-            label6.Size = new Size(80, 25);
-            label6.TabIndex = 0;
-            label6.Text = "队伍5";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel5.Controls.Add(textBox4);
-            panel5.Controls.Add(label4);
-            panel5.Location = new Point(560, 0);
-            panel5.Margin = new Padding(0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(240, 50);
-            panel5.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            textBox4.BackColor = Color.White;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(76, 14);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.ScrollBars = ScrollBars.Vertical;
-            textBox4.Size = new Size(160, 25);
-            textBox4.TabIndex = 1;
-            textBox4.MouseDown += textBox4_MouseDown;
-            // 
-            // label4
-            // 
-            label4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(3, 14);
-            label4.Name = "label4";
-            label4.Size = new Size(80, 25);
-            label4.TabIndex = 0;
-            label4.Text = "队伍3";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // panel4
-            // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel4.Controls.Add(textBox3);
-            panel4.Controls.Add(label3);
-            panel4.Location = new Point(280, 0);
-            panel4.Margin = new Padding(0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(240, 50);
-            panel4.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            textBox3.BackColor = Color.White;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(76, 14);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.ScrollBars = ScrollBars.Vertical;
-            textBox3.Size = new Size(160, 25);
-            textBox3.TabIndex = 1;
-            textBox3.MouseDown += textBox3_MouseDown;
-            // 
-            // label3
-            // 
-            label3.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(3, 14);
-            label3.Name = "label3";
-            label3.Size = new Size(80, 25);
-            label3.TabIndex = 0;
-            label3.Text = "队伍2";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
+            button3.BackColor = Color.White;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(54, 2);
+            button3.Name = "button3";
+            button3.Size = new Size(70, 27);
+            button3.TabIndex = 8;
+            button3.Text = "<<";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -268,7 +157,7 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(700, 585);
+            button2.Location = new Point(700, 587);
             button2.Name = "button2";
             button2.Size = new Size(120, 35);
             button2.TabIndex = 5;
@@ -276,24 +165,24 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = Color.White;
-            dataGridView1.Location = new Point(20, 90);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(800, 361);
-            dataGridView1.TabIndex = 5;
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.AllowUserToResizeRows = false;
+            dataGridView.BackgroundColor = Color.White;
+            dataGridView.BorderStyle = BorderStyle.None;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.GridColor = Color.White;
+            dataGridView.Location = new Point(20, 76);
+            dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
+            dataGridView.RowHeadersVisible = false;
+            dataGridView.RowHeadersWidth = 51;
+            dataGridView.RowTemplate.Height = 29;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.Size = new Size(544, 466);
+            dataGridView.TabIndex = 5;
             // 
             // panel2
             // 
@@ -362,18 +251,9 @@
             Text = "TeacherSelectionTeam";
             Load += TeacherSelectionTeam_Load;
             panel1.ResumeLayout(false);
-            panel8.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -382,28 +262,19 @@
         #endregion
 
         private Panel panel1;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView;
         private Panel panel2;
         private Button button1;
         private TextBox textBox1;
         private ComboBox comboBox;
         private Label label1;
+        private Button button2;
         private Panel panel3;
         private TextBox textBox2;
-        private Label label2;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
         private Panel panel4;
-        private TextBox textBox3;
-        private Label label3;
-        private Panel panel5;
-        private TextBox textBox4;
-        private Label label4;
-        private Panel panel6;
-        private TextBox textBox5;
-        private Label label5;
-        private Panel panel7;
-        private TextBox textBox6;
-        private Label label6;
-        private Button button2;
-        private Panel panel8;
     }
 }

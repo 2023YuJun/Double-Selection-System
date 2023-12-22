@@ -34,16 +34,34 @@ namespace StudentTerminal
         static int teamchoicesize = int.Parse(db.Queryable<DSS_3_8_ChoiceSetting>().First().TeamChoiceSize);
         int nonEmptyTextBoxCount;
         bool IsStuOrTea = true;
-        Panel[] PTP = new Panel[teampersonsize];
+        Panel[] PTP = new Panel[teampersonsize - 1];
         Panel[] PTC = new Panel[teamchoicesize];
-        TextBox[] TBTP = new TextBox[teampersonsize];
+        TextBox[] TBTP = new TextBox[teampersonsize - 1];
         TextBox[] TBTC = new TextBox[teamchoicesize];
         private void CreateTeam_Load(object sender, EventArgs e)
         {
-            comboBox.Items.Clear();
-            comboBox.Items.AddRange(new object[] { "所有学生信息", "学生学号搜索", "学生姓名搜索", "所有导师信息", "导师职工号搜索", "导师姓名搜索" });
-            LoadDGV();
-            button7_Click(sender, e);
+            var userteam = db
+               .Queryable<DSS_3_8_Choice, DSS_3_8_BIOTEAM>((t1, t2) => t1.Tag == t2.TeamID.ToString())
+               .Where((t1, t2) => t1.ChoiceName == UserHelper.bios.StudentName).Select((t1, t2) => new
+               {
+                   Choice = t1,
+                   BIOTEAM = t2
+               })
+               .ToList()
+               .FirstOrDefault();
+            //判断是否有队伍
+            if (userteam == null)
+            {
+                comboBox.Items.Clear();
+                comboBox.Items.AddRange(new object[] { "所有学生信息", "学生学号搜索", "学生姓名搜索", "所有导师信息", "导师职工号搜索", "导师姓名搜索" });
+                LoadDGV();
+                button7_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("你已创建（或加入）队伍，无法创建队伍");
+                panel1.Visible = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,11 +72,13 @@ namespace StudentTerminal
         private void button2_Click(object sender, EventArgs e)
         {
             //检查是否有重复名
-            bool TBTPhasDuplicates = TBTP.GroupBy(textBox => textBox.Text)
+            bool TBTPhasDuplicates = TBTP.Where(textBox => !string.IsNullOrWhiteSpace(textBox.Text)) // 过滤掉空白或空值
+                        .GroupBy(textBox => textBox.Text)
                         .Any(group => group.Count() > 1);
-            bool TBTChasDuplicates = TBTC.GroupBy(textBox => textBox.Text)
-                       .Any(group => group.Count() > 1);
-            if ( TBTPhasDuplicates)
+            bool TBTChasDuplicates = TBTC.Where(textBox => !string.IsNullOrWhiteSpace(textBox.Text))
+                        .GroupBy(textBox => textBox.Text)
+                        .Any(group => group.Count() > 1);
+            if (TBTPhasDuplicates)
             {
                 MessageBox.Show("组员重复！");
                 return;
@@ -76,11 +96,12 @@ namespace StudentTerminal
             }
             List<string> textBoxes = new List<string>();
             //检查队员是否已经存在其他队伍中
-            foreach(TextBox textBox in TBTP)
+            foreach (TextBox textBox in TBTP)
             {
-                textBoxes.Add(textBox.Text);
+                if (!string.IsNullOrWhiteSpace(textBox.Text))
+                    textBoxes.Add(textBox.Text);
             }
-            nonEmptyTextBoxCount = textBoxes.Count(text => !string.IsNullOrWhiteSpace(text));
+            nonEmptyTextBoxCount = textBoxes.Count();
             foreach (string text in textBoxes)
             {
                 if (HasTeam(text))
@@ -112,9 +133,9 @@ namespace StudentTerminal
         private void button7_Click(object sender, EventArgs e)
         {
             panel7.Controls.Clear();
-            if(PTP.Any(panel => panel != null))
+            if (PTP.Any(panel => panel == null))
             {
-                for (int i = 0; i < teampersonsize; i++)
+                for (int i = teampersonsize - 1; i > 0; i--)
                 {
                     Panel panel = new Panel();
                     Label label = new Label();
@@ -124,7 +145,7 @@ namespace StudentTerminal
                     panel.Name = "panel" + (i + 100).ToString();
                     label.TextAlign = ContentAlignment.MiddleLeft;
                     label.Font = new System.Drawing.Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-                    label.Text = "队员" + (i + 1).ToString();
+                    label.Text = "队员" + i.ToString();
                     label.Name = "label" + (i + 100).ToString();
                     label.Location = new System.Drawing.Point(20, 3);
                     label.Size = new Size(80, 25);
@@ -137,30 +158,31 @@ namespace StudentTerminal
                     textBox.Location = new Point(100, 3);
                     textBox.Size = new Size(120, 25);
                     textBox.Click += TextBox_Click_Stu;
-                    label.Tag = i;
-                    textBox.Tag = i;
-                    panel.Tag = i;
+                    textBox.DoubleClick += TextBox_DoubleClick;
+                    label.Tag = i - 1;
+                    textBox.Tag = i - 1;
+                    panel.Tag = i - 1;
                     panel.Controls.Add(label);
                     panel.Controls.Add(textBox);
-                    TBTP[i] = textBox;
-                    PTP[i] = panel;
+                    TBTP[i - 1] = textBox;
+                    PTP[i - 1] = panel;
                     panel7.Controls.Add(panel);
                 }
             }
             else
             {
-                foreach (Panel panel in PTP)
+                for (int i = teampersonsize - 1; i > 0; i--)
                 {
-                    panel7.Controls.Add(panel); 
+                    panel7.Controls.Add(PTP[i - 1]);
                 }
             }
         }
         private void button8_Click(object sender, EventArgs e)
         {
             panel7.Controls.Clear();
-            if (PTC.Any(panel => panel != null))
+            if (PTC.Any(panel => panel == null))
             {
-                for (int i = 0; i < teampersonsize; i++)
+                for (int i = teamchoicesize; i > 0; i--)
                 {
                     Panel panel = new Panel();
                     Label label = new Label();
@@ -170,7 +192,7 @@ namespace StudentTerminal
                     panel.Name = "panel" + (i + 200).ToString();
                     label.TextAlign = ContentAlignment.MiddleLeft;
                     label.Font = new System.Drawing.Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-                    label.Text = "导师" + (i + 1).ToString();
+                    label.Text = "导师" + i.ToString();
                     label.Name = "label" + (i + 200).ToString();
                     label.Location = new System.Drawing.Point(20, 3);
                     label.Size = new Size(80, 25);
@@ -183,21 +205,22 @@ namespace StudentTerminal
                     textBox.Location = new Point(100, 3);
                     textBox.Size = new Size(120, 25);
                     textBox.Click += TextBox_Click_Tea;
-                    label.Tag = i;
-                    textBox.Tag = i;
-                    panel.Tag = i;
+                    textBox.DoubleClick += TextBox_DoubleClick;
+                    label.Tag = i - 1;
+                    textBox.Tag = i - 1;
+                    panel.Tag = i - 1;
                     panel.Controls.Add(label);
                     panel.Controls.Add(textBox);
-                    TBTC[i] = textBox;
-                    PTC[i] = panel;
+                    TBTC[i - 1] = textBox;
+                    PTC[i - 1] = panel;
                     panel7.Controls.Add(panel);
                 }
             }
             else
             {
-                foreach (Panel panel in PTC)
+                for (int i = teamchoicesize; i > 0; i--)
                 {
-                    panel7.Controls.Add(panel);
+                    panel7.Controls.Add(PTC[i - 1]);
                 }
             }
         }
@@ -223,9 +246,9 @@ namespace StudentTerminal
             var checkTeamQuery = db
                 .Queryable<DSS_3_8_Choice, DSS_3_8_BIOTEAM>((t1, t2) => t1.Tag == t2.TeamID.ToString())
                 .Where("ChoiceType LIKE @ChoiceType", new { ChoiceType = "%TM%" })
-                .Where(it => it.ChoiceName == currentUser)
-                .ToList();
-            return checkTeamQuery != null;
+                .Where(t1 => t1.ChoiceName == currentUser)
+                .Any();             // 使用 Any() 检查是否存在符合条件的项
+            return checkTeamQuery;
         }
 
         private bool ValidateInput()
@@ -252,33 +275,34 @@ namespace StudentTerminal
             dSS_3_8_Choice.ChoiceName = UserHelper.bios.StudentName;
             dSS_3_8_Choice.Tag = tag.ToString();
             db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+            int Update1 = 0;
             foreach (var textbox in TBTP)
             {
-                dSS_3_8_Choice.ChoiceType = "TM";
-                dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
-                dSS_3_8_Choice.Tag = tag.ToString();
-                db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                if (!string.IsNullOrWhiteSpace(textbox.Text))
+                {
+                    dSS_3_8_Choice.ChoiceType = "TM";
+                    dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
+                    dSS_3_8_Choice.Tag = tag.ToString();
+                    db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                    Update1 = db.Updateable<DSS_3_8_BIOS>()
+                        .SetColumns(it => new DSS_3_8_BIOS { Duty = "队员", YourTeam = textBox3.Text.Trim() })
+                        .Where(it => it.StudentName == textbox.Text)
+                        .ExecuteCommand();
+                }
             }
             foreach (var textbox in TBTC)
             {
-                dSS_3_8_Choice.ChoiceType = "TC";
-                dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
-                dSS_3_8_Choice.Tag = tag.ToString();
-                db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                if (!string.IsNullOrWhiteSpace(textbox.Text))
+                {
+                    dSS_3_8_Choice.ChoiceType = "TC";
+                    dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
+                    dSS_3_8_Choice.Tag = tag.ToString();
+                    db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                }
             }
-
 
             DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();
-            dSS_3_8_BIOS.Duty = "队员";
             dSS_3_8_BIOS.YourTeam = textBox3.Text.Trim();
-            int Update1 = 0;
-            foreach (TextBox textBox in TBTP)
-            {
-                Update1 = db.Updateable(dSS_3_8_BIOS)
-                .Where(it => it.StudentName == textBox.Text)
-                .UpdateColumns(it => new { it.Duty, it.YourTeam })
-                .ExecuteCommand();
-            }
             dSS_3_8_BIOS.Duty = "队长";
             int Update2 = db.Updateable(dSS_3_8_BIOS)
                 .Where(it => it.StudentName == UserHelper.bios.StudentName)
@@ -294,7 +318,7 @@ namespace StudentTerminal
             var query1 = db.Queryable<DSS_3_8_BIOS>();
             var query2 = db.Queryable<DSS_3_8_BIOT>();
 
-            if (comboBox.Text == "所有学生信息" || comboBox.Text == "学生学号搜索" || comboBox.Text == "学生姓名搜索")
+            if (comboBox.Text == "所有学生信息" || comboBox.Text == "学生学号搜索" || comboBox.Text == "学生姓名搜索" || comboBox.Text == "")
             {
                 IsStuOrTea = true;
                 if (comboBox.Text == "学生学号搜索")
@@ -323,15 +347,15 @@ namespace StudentTerminal
                 }
                 else if (comboBox.Text == "所有导师信息")
                 {
-                    // 其他操作
+                    ;
                 }
             }
 
             // 执行分页查询
-            int visibleRowCount = dataGridView.DisplayedRowCount(true);
+            int visibleRowCount = dataGridView.Height / dataGridView.RowTemplate.Height;
             int rowCountPerPage = visibleRowCount; // 每页显示的行数与可见行数一致
             int totalCount = IsStuOrTea ? query1.Count() : query2.Count();
-            int totalPages = (int)Math.Ceiling((double)totalCount / rowCountPerPage);
+            totalPages = (int)Math.Ceiling((double)totalCount / rowCountPerPage);
             currentPage = Math.Min(Math.Max(1, currentPage), totalPages);
 
             if (IsStuOrTea)
@@ -404,7 +428,7 @@ namespace StudentTerminal
                 }
                 else
                 {
-                    MessageBox.Show("请输入有效的页数！");
+                    MessageBox.Show("页数无效");
                 }
             }
         }
@@ -437,13 +461,19 @@ namespace StudentTerminal
             {
                 DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
                 string input = selectedRow.Cells["导师姓名"].Value.ToString();
-                TBTP[index].Clear();
-                TBTP[index].Text = input;
+                TBTC[index].Clear();
+                TBTC[index].Text = input;
             }
             else
             {
                 MessageBox.Show("不能选入！");
             }
+        }
+        private void TextBox_DoubleClick(object sender, EventArgs e)
+        {
+            TextBox clickedTextBox = (TextBox)sender;
+            int index = (int)clickedTextBox.Tag;
+            TBTP[index].Clear();
         }
         #endregion
     }

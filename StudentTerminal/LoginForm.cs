@@ -41,14 +41,15 @@ namespace StudentTerminal
                 }
                 else
                 {
-                    Tiplab.Text = "The user name or password is incorrect";
                     Tiplab.Visible = true;
+                    Tiplab.Text = "The user name or password is incorrect";
                     Passwordtb.Text = "";
                     Passwordtb.Focus();
                 }
             }
             else
             {
+                Tiplab.Visible = true;
                 Tiplab.Text = "The system does not allow access";
                 return;
             }

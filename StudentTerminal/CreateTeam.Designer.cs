@@ -36,6 +36,7 @@
             button4 = new Button();
             button3 = new Button();
             panel4 = new Panel();
+            panel7 = new Panel();
             panel5 = new Panel();
             button8 = new Button();
             button7 = new Button();
@@ -60,7 +61,6 @@
             comboBox = new ComboBox();
             label2 = new Label();
             openFileDialog = new OpenFileDialog();
-            panel7 = new Panel();
             panel1.SuspendLayout();
             panel6.SuspendLayout();
             panel4.SuspendLayout();
@@ -184,6 +184,16 @@
             panel4.Size = new Size(250, 260);
             panel4.TabIndex = 7;
             // 
+            // panel7
+            // 
+            panel7.AutoScroll = true;
+            panel7.Dock = DockStyle.Fill;
+            panel7.Location = new Point(0, 0);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(250, 227);
+            panel7.TabIndex = 1;
+            // 
             // panel5
             // 
             panel5.Controls.Add(button8);
@@ -205,7 +215,7 @@
             button8.Name = "button8";
             button8.Size = new Size(100, 27);
             button8.TabIndex = 14;
-            button8.Text = "选导师";
+            button8.Text = "导师";
             button8.UseVisualStyleBackColor = false;
             button8.Click += button8_Click;
             // 
@@ -219,7 +229,7 @@
             button7.Name = "button7";
             button7.Size = new Size(100, 27);
             button7.TabIndex = 13;
-            button7.Text = "选队员";
+            button7.Text = "队员";
             button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click;
             // 
@@ -457,16 +467,6 @@
             // openFileDialog
             // 
             openFileDialog.FileName = "openFileDialog1";
-            // 
-            // panel7
-            // 
-            panel7.AutoScroll = true;
-            panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(0, 0);
-            panel7.Margin = new Padding(0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(250, 227);
-            panel7.TabIndex = 1;
             // 
             // CreateTeam
             // 
