@@ -276,14 +276,13 @@ namespace StudentTerminal
             dSS_3_8_Choice.ChoiceName = UserHelper.bios.StudentName;
             dSS_3_8_Choice.Tag = tag.ToString();
             db.Insertable(dSS_3_8_Choice).ExecuteCommand();
-            int Update1 = 0;
             foreach (var textbox in TBTP)
             {
                 dSS_3_8_Choice.ChoiceType = "TM";
                 dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
                 dSS_3_8_Choice.Tag = tag.ToString();
                 db.Insertable(dSS_3_8_Choice).ExecuteCommand();
-                Update1 = db.Updateable<DSS_3_8_BIOS>()
+                db.Updateable<DSS_3_8_BIOS>()
                     .SetColumns(it => new DSS_3_8_BIOS { Duty = "队员", YourTeam = textBox3.Text.Trim() })
                     .Where(it => it.StudentName == textbox.Text)
                     .ExecuteCommand();
@@ -301,11 +300,11 @@ namespace StudentTerminal
             DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();
             dSS_3_8_BIOS.YourTeam = textBox3.Text.Trim();
             dSS_3_8_BIOS.Duty = "队长";
-            int Update2 = db.Updateable(dSS_3_8_BIOS)
+            int Update = db.Updateable(dSS_3_8_BIOS)
                 .Where(it => it.StudentName == UserHelper.bios.StudentName)
                 .UpdateColumns(it => new { it.Duty, it.YourTeam })
                 .ExecuteCommand();
-            return Insert > 0 && Update1 > 0 && Update2 > 0;
+            return Insert > 0 && Update > 0;
         }
 
         #region DGV分页
