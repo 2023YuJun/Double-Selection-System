@@ -288,7 +288,7 @@ namespace TeacherTerminal
         #region 加载带领队伍信息
         private void LoadTeamInformation()
         {
-            var teamname = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString()).ToList();
+            var teamname = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString() && it.ChoiceType == "CT").ToList();
 
             for (int i = 0; i < teamname.Count; i++)
             {
