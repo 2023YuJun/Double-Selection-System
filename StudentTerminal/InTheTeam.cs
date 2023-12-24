@@ -331,7 +331,7 @@ namespace StudentTerminal
                     textBox.Location = new System.Drawing.Point(100, 3);
                     textBox.Size = new Size(120, 25);
                     textBox.Click += TextBox_Click_Stu;
-                    textBox.DoubleClick += TextBox_DoubleClick;
+                    textBox.DoubleClick += TextBox_Click_Stu_DoubleClick;
                     label.Tag = i - 1;
                     textBox.Tag = i - 1;
                     panel.Tag = i - 1;
@@ -386,7 +386,7 @@ namespace StudentTerminal
                     textBox.Location = new System.Drawing.Point(100, 3);
                     textBox.Size = new Size(120, 25);
                     textBox.Click += TextBox_Click_Tea;
-                    textBox.DoubleClick += TextBox_DoubleClick;
+                    textBox.DoubleClick += TextBox_Click_Tea_DoubleClick;
                     label.Tag = i - 1;
                     textBox.Tag = i - 1;
                     panel.Tag = i - 1;
@@ -673,11 +673,17 @@ namespace StudentTerminal
                 MessageBox.Show("不能选入！");
             }
         }
-        private void TextBox_DoubleClick(object sender, EventArgs e)
+        private void TextBox_Click_Stu_DoubleClick(object sender, EventArgs e)
         {
             TextBox clickedTextBox = (TextBox)sender;
             int index = (int)clickedTextBox.Tag;
             TBTP[index].Clear();
+        }
+        private void TextBox_Click_Tea_DoubleClick(object sender, EventArgs e)
+        {
+            TextBox clickedTextBox = (TextBox)sender;
+            int index = (int)clickedTextBox.Tag;
+            TBTC[index].Clear();
         }
         #endregion
 
