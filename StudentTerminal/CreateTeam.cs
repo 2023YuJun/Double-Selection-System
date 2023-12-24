@@ -55,6 +55,7 @@ namespace StudentTerminal
                 comboBox.Items.Clear();
                 comboBox.Items.AddRange(new object[] { "所有学生信息", "学生学号搜索", "学生姓名搜索", "所有导师信息", "导师职工号搜索", "导师姓名搜索" });
                 LoadDGV();
+                button8_Click(sender, e);
                 button7_Click(sender, e);
             }
             else

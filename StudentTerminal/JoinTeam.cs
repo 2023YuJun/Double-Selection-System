@@ -79,15 +79,22 @@ namespace StudentTerminal
                                         .UpdateColumns(it => new { it.Number })
                                         .ExecuteCommand();
 
-                    var whitetext = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == team.TeamID.ToString() && (it.ChoiceName == null || it.ChoiceName == "")).ToList().FirstOrDefault();
+                    var whitetext = db.Queryable<DSS_3_8_Choice>()
+                                    .Where(it => it.Tag == team.TeamID.ToString() && (it.ChoiceName == null || it.ChoiceName == ""))
+                                    .OrderBy(it => it.ChoiceID)
+                                    .ToList()
+                                    .FirstOrDefault();
+
                     int Update1 = 0;
+
                     if (whitetext != null)
                     {
-                        DSS_3_8_Choice dSS_3_8_Choice = new DSS_3_8_Choice();
-                        dSS_3_8_Choice.ChoiceType = "TM";
-                        dSS_3_8_Choice.ChoiceName = UserHelper.bios.StudentName;
-                        dSS_3_8_Choice.Tag = team.TeamID.ToString();
-                        Update1 = db.Updateable(dSS_3_8_Choice).Where(it => it.Tag == team.TeamID.ToString() && it.ChoiceType == "TM" && (it.ChoiceName == null || it.ChoiceName == "")).ExecuteCommand();
+                        whitetext.ChoiceType = "TM";
+                        whitetext.ChoiceName = UserHelper.bios.StudentName;
+
+                        Update1 = db.Updateable(whitetext)
+                            .Where(it => it.ChoiceID == whitetext.ChoiceID) 
+                            .ExecuteCommand();
                     }
                     DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();
                     dSS_3_8_BIOS.Duty = "队员";
