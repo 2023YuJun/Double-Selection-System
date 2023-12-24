@@ -32,14 +32,6 @@ namespace AdminTerminal
                 }
                 else { return; }
                 if (FexitRequested) { return; }
-                UserHelper.user = null;
-                UserHelper.bios = null;
-                UserHelper.biot = null;
-                UserHelper.bioteam = null;
-                UserHelper.timesetting = null;
-                UserHelper.bioadm = null;
-                UserHelper.choice = null;
-                UserHelper.choicesetting = null;
             }
         }
     }
