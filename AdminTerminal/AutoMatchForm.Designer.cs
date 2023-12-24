@@ -35,6 +35,7 @@
             button1 = new Button();
             button2 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -101,7 +102,7 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(300, 640);
+            button1.Location = new Point(250, 640);
             button1.Name = "button1";
             button1.Size = new Size(120, 30);
             button1.TabIndex = 17;
@@ -116,7 +117,7 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(460, 640);
+            button2.Location = new Point(510, 640);
             button2.Name = "button2";
             button2.Size = new Size(120, 30);
             button2.TabIndex = 18;
@@ -129,12 +130,28 @@
             timer1.Enabled = true;
             timer1.Tick += timer1_Tick;
             // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Bottom;
+            button3.BackColor = Color.White;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(380, 640);
+            button3.Name = "button3";
+            button3.Size = new Size(120, 30);
+            button3.TabIndex = 19;
+            button3.Text = "清除结果";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // AutoMatchForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(182, 211, 245);
             ClientSize = new Size(880, 680);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView3);
@@ -158,5 +175,6 @@
         private Button button1;
         private Button button2;
         private System.Windows.Forms.Timer timer1;
+        private Button button3;
     }
 }

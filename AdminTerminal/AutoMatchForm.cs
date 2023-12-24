@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Model;
 using SQLDAL;
 using SqlSugar;
@@ -84,6 +85,31 @@ namespace AdminTerminal
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var allTeams = db.Queryable<DSS_3_8_BIOTEAM>().ToList();
+            foreach (var team in allTeams)
+            {
+                db.Updateable<DSS_3_8_BIOTEAM>()
+                            .SetColumns(it => new DSS_3_8_BIOTEAM { Instructor = "" })
+                            .Where(it => it.TeamID == team.TeamID)
+                            .ExecuteCommand();
+            }
+
+            var allTeachers = db.Queryable<DSS_3_8_BIOT>().ToList();
+            foreach (var teacher in allTeachers)
+            {
+                db.Updateable<DSS_3_8_BIOT>()
+                            .SetColumns(it => new DSS_3_8_BIOT { LeadTeam = "" })
+                            .Where(it => it.TeacherID == teacher.TeacherID)
+                            .ExecuteCommand();
+            }
+
+            DataTable dataTable = new DataTable();
+            dataGridView3.DataSource = dataTable;
+            
+
+        }
         private void Score()
         {
             var distinctTCTag = db.Queryable<DSS_3_8_Choice>()
@@ -368,5 +394,6 @@ namespace AdminTerminal
             dataGridView2.Width = dgvWidth;
             dataGridView3.Width = dgvWidth;
         }
+
     }
 }

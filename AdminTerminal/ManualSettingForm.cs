@@ -24,33 +24,7 @@ namespace AdminTerminal
         static int teamchoicesize = int.Parse(db.Queryable<DSS_3_8_ChoiceSetting>().First().TeamChoiceSize);
         private void ManualSettingForm_Load(object sender, EventArgs e)
         {
-            var result1 = db.Queryable<DSS_3_8_BIOTEAM>()
-                .Select(it => new
-                {
-                    TeamID = it.TeamID,
-                    队伍名称 = it.TeamName,
-                    队内人数 = it.Number,
-                    课题名 = it.TopicName,
-                    课题简介 = it.TopicIntroduction,
-                    文件名 = it.FileName,
-                    文件下载路径 = it.FileDownloadPath,
-                    指导老师 = it.Instructor
-                })
-                .ToList();
-            var result2 = db.Queryable<DSS_3_8_BIOT>()
-                .Select(it => new
-                {
-                    TeaID = it.TeacherID,
-                    姓名 = it.TeacherName,
-                    性别 = it.Sex,
-                    工号 = it.Account,
-                    院系 = it.Faculties,
-                    专业 = it.Specialty,
-                    带领队伍 = it.LeadTeam,
-                    联系方式 = it.Contact
-                }).ToList();
-            dataGridView1.DataSource = result1;
-            dataGridView3.DataSource = result2;
+            LoadData();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -131,7 +105,7 @@ namespace AdminTerminal
                             .Where(it => it.TeacherID == teaID)
                             .ExecuteCommand();
             }
-
+            LoadData();
             Update_Stu();
         }
 
@@ -194,7 +168,38 @@ namespace AdminTerminal
             }
         }
 
+        private void LoadData()
+        {
+            var result1 = db.Queryable<DSS_3_8_BIOTEAM>()
+                .Select(it => new
+                {
+                    TeamID = it.TeamID,
+                    队伍名称 = it.TeamName,
+                    队内人数 = it.Number,
+                    课题名 = it.TopicName,
+                    课题简介 = it.TopicIntroduction,
+                    文件名 = it.FileName,
+                    文件下载路径 = it.FileDownloadPath,
+                    指导老师 = it.Instructor
+                })
+                .ToList();
 
+            var result2 = db.Queryable<DSS_3_8_BIOT>()
+                .Select(it => new
+                {
+                    TeaID = it.TeacherID,
+                    姓名 = it.TeacherName,
+                    性别 = it.Sex,
+                    工号 = it.Account,
+                    院系 = it.Faculties,
+                    专业 = it.Specialty,
+                    带领队伍 = it.LeadTeam,
+                    联系方式 = it.Contact
+                }).ToList();
+
+            dataGridView1.DataSource = result1;
+            dataGridView3.DataSource = result2;
+        }
         private void Update_Stu()
         {
             // 查询获取所有 Instructor 为空的队伍的 TeamID
