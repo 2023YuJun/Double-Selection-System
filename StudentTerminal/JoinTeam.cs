@@ -79,12 +79,16 @@ namespace StudentTerminal
                                         .UpdateColumns(it => new { it.Number })
                                         .ExecuteCommand();
 
-                    DSS_3_8_Choice dSS_3_8_Choice = new DSS_3_8_Choice();
-                    dSS_3_8_Choice.ChoiceType = "TM";
-                    dSS_3_8_Choice.ChoiceName = UserHelper.bios.StudentName;
-                    dSS_3_8_Choice.Tag = team.TeamID.ToString();
-                    var insert = db.Insertable(dSS_3_8_Choice).ExecuteCommand();
-
+                    var whitetext = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == team.TeamID.ToString() && (it.ChoiceName == null || it.ChoiceName == "")).ToList().FirstOrDefault();
+                    int Update1 = 0;
+                    if (whitetext != null)
+                    {
+                        DSS_3_8_Choice dSS_3_8_Choice = new DSS_3_8_Choice();
+                        dSS_3_8_Choice.ChoiceType = "TM";
+                        dSS_3_8_Choice.ChoiceName = UserHelper.bios.StudentName;
+                        dSS_3_8_Choice.Tag = team.TeamID.ToString();
+                        Update1 = db.Updateable(dSS_3_8_Choice).Where(it => it.Tag == team.TeamID.ToString() && it.ChoiceType == "TM" && (it.ChoiceName == null || it.ChoiceName == "")).ExecuteCommand();
+                    }
                     DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();
                     dSS_3_8_BIOS.Duty = "队员";
                     dSS_3_8_BIOS.YourTeam = teamName;
@@ -92,7 +96,7 @@ namespace StudentTerminal
                                 .Where(it => it.Account == UserHelper.bios.Account)
                                 .UpdateColumns(it => new { it.Duty, it.YourTeam })
                                 .ExecuteCommand();
-                    if (affectedRows > 0 && Update > 0 && insert > 0)
+                    if (affectedRows > 0 && Update > 0 && Update1 > 0)
                     {
                         UserHelper.bios.Duty = "队员";
                         UserHelper.bios.YourTeam = teamName;

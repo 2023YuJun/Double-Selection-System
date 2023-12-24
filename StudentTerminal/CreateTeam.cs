@@ -278,27 +278,23 @@ namespace StudentTerminal
             int Update1 = 0;
             foreach (var textbox in TBTP)
             {
-                if (!string.IsNullOrWhiteSpace(textbox.Text))
-                {
-                    dSS_3_8_Choice.ChoiceType = "TM";
-                    dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
-                    dSS_3_8_Choice.Tag = tag.ToString();
-                    db.Insertable(dSS_3_8_Choice).ExecuteCommand();
-                    Update1 = db.Updateable<DSS_3_8_BIOS>()
-                        .SetColumns(it => new DSS_3_8_BIOS { Duty = "队员", YourTeam = textBox3.Text.Trim() })
-                        .Where(it => it.StudentName == textbox.Text)
-                        .ExecuteCommand();
-                }
+                dSS_3_8_Choice.ChoiceType = "TM";
+                dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
+                dSS_3_8_Choice.Tag = tag.ToString();
+                db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                Update1 = db.Updateable<DSS_3_8_BIOS>()
+                    .SetColumns(it => new DSS_3_8_BIOS { Duty = "队员", YourTeam = textBox3.Text.Trim() })
+                    .Where(it => it.StudentName == textbox.Text)
+                    .ExecuteCommand();
+                
             }
             foreach (var textbox in TBTC)
             {
-                if (!string.IsNullOrWhiteSpace(textbox.Text))
-                {
-                    dSS_3_8_Choice.ChoiceType = "TC";
-                    dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
-                    dSS_3_8_Choice.Tag = tag.ToString();
-                    db.Insertable(dSS_3_8_Choice).ExecuteCommand();
-                }
+                dSS_3_8_Choice.ChoiceType = "TC";
+                dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
+                dSS_3_8_Choice.Tag = tag.ToString();
+                db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                
             }
 
             DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();

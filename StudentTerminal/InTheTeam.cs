@@ -455,7 +455,7 @@ namespace StudentTerminal
             var Tag = db.Queryable<DSS_3_8_Choice>().Where(it => it.ChoiceName == UserHelper.bios.StudentName).First().Tag;
             var oldTM = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == Tag && it.ChoiceType == "TM").ToList();
             DSS_3_8_Choice dSS_3_8_Choice = new DSS_3_8_Choice();
-            int update1 = 0, update2 = 0, insert1 = 0, insert2 = 0;
+            int update1 = 0, insert1 = 0, insert2 = 0;
             //更改不同的职位
             foreach (var choice in oldTM)
             {
@@ -492,30 +492,26 @@ namespace StudentTerminal
                 .ExecuteCommand();
             foreach (var textbox in TBTP)
             {
-                if (!string.IsNullOrWhiteSpace(textbox.Text))
-                {
-                    dSS_3_8_Choice.ChoiceType = "TM";
-                    dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
-                    dSS_3_8_Choice.Tag = Tag;
-                    insert1 = db.Insertable(dSS_3_8_Choice).ExecuteCommand();
-                    update2 = db.Updateable<DSS_3_8_BIOS>()
-                                .SetColumns(it => new DSS_3_8_BIOS { Duty = "队员", YourTeam = textBox3.Text.Trim() })
-                                .Where(it => it.StudentName == textbox.Text)
-                                .ExecuteCommand();
-                }
+                dSS_3_8_Choice.ChoiceType = "TM";
+                dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
+                dSS_3_8_Choice.Tag = Tag;
+                insert1 = db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                db.Updateable<DSS_3_8_BIOS>()
+                            .SetColumns(it => new DSS_3_8_BIOS { Duty = "队员", YourTeam = textBox3.Text.Trim() })
+                            .Where(it => it.StudentName == textbox.Text)
+                            .ExecuteCommand();
+                
             }
             foreach (var textbox in TBTC)
             {
-                if (!string.IsNullOrWhiteSpace(textbox.Text))
-                {
-                    dSS_3_8_Choice.ChoiceType = "TC";
-                    dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
-                    dSS_3_8_Choice.Tag = Tag;
-                    insert2 = db.Insertable(dSS_3_8_Choice).ExecuteCommand();
-                }
+                dSS_3_8_Choice.ChoiceType = "TC";
+                dSS_3_8_Choice.ChoiceName = textbox.Text.Trim();
+                dSS_3_8_Choice.Tag = Tag;
+                insert2 = db.Insertable(dSS_3_8_Choice).ExecuteCommand();
+                
             }
 
-            return updatebioteam > 0 && update1 > 0 && update2 > 0 && insert1 > 0 && insert2 > 0;
+            return updatebioteam > 0 && update1 > 0  && insert1 > 0 && insert2 > 0;
 
         }
 

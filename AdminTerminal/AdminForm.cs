@@ -155,12 +155,16 @@ namespace AdminTerminal
             //自动分配
             Ftool.Cheak_click(button9, ftool.C_btn);
             ftool.C_btn = button9;
+            AutoMatchForm autoMatchForm = new AutoMatchForm();
+            Ftool.Showform(panel4, autoMatchForm);
         }
         private void button10_Click(object sender, EventArgs e)
         {
             //手动调整
             Ftool.Cheak_click(button10, ftool.C_btn);
             ftool.C_btn = button10;
+            ManualSettingForm manualSettingForm = new ManualSettingForm();
+            Ftool.Showform(panel4, manualSettingForm);
         }
         private void button11_Click(object sender, EventArgs e)
         {
