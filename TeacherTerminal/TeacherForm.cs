@@ -1,6 +1,8 @@
 ﻿using Common;
+using Model;
 using Newtonsoft.Json.Linq;
 using SQLDAL;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +27,7 @@ namespace TeacherTerminal
         {
             InitializeComponent();
         }
-
+        static SqlSugarClient db = SqlSugarHelper.GetSugarClient();
         private void TeacherForm_Load(object sender, EventArgs e)
         {
             TeaTimer.Start();
@@ -262,58 +264,39 @@ namespace TeacherTerminal
 
         private void TeaTimer_Tick(object sender, EventArgs e)
         {
-            DateTime TeaBeginTime;
-            DateTime TeaEndTime;
-            DateTime NowTime = DateTime.Now;
-            JObject jsonObj = JObject.Parse(SqlDbHelper.json);
-            var TeaTime = jsonObj["AppSettings"]["TeaTimeSetting"] as JObject;
-            if (TeaTime != null && TeaTime.HasValues)
+            var faculties = UserHelper.biot.Faculties;
+            var specialty = UserHelper.biot.Specialty;
+            var currentTime = DateTime.Now;
+
+            var timeSettings = db.Queryable<DSS_3_8_TimeSetting>()
+                .Where(t => t.TimeType == "TeaSelect")
+                .ToList();
+            if (timeSettings.Count > 0)
             {
-                bool found = false;
-                string existingFieldName = null;
-
-                foreach (var item in TeaTime)
+                foreach (var setting in timeSettings)
                 {
-                    var field = (JObject)item.Value;
-
-                    if (field["Faculties"]?.ToString() == "学院")
+                    if ((setting.Faculties == "学院" && setting.Specialty == "专业") ||
+                        (setting.Faculties == faculties && setting.Specialty == specialty))
                     {
-                        if (field["ProfessionalDirection"]?.ToString() == "专业")
+                        DateTime beginTime = DateTime.ParseExact(setting.BeginTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                        DateTime endTime = DateTime.ParseExact(setting.EndTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+                        if (currentTime >= beginTime && currentTime <= endTime)
                         {
-                            found = true;
-                            existingFieldName = item.Key;
+                            // 时间范围内
+                            time = true;
                             break;
                         }
-                        else if (field["ProfessionalDirection"]?.ToString() == UserHelper.bios.Specialty)
+                        else
                         {
-                            found = true;
-                            existingFieldName = item.Key;
+                            time = false;
                             break;
                         }
                     }
-                    else if (field["Faculties"]?.ToString() == UserHelper.bios.Faculties &&
-                        field["ProfessionalDirection"]?.ToString() == UserHelper.bios.Specialty)
-                    {
-                        found = true;
-                        existingFieldName = item.Key;
-                        break;
-                    }
-                }
-                if (found)
-                {
-                    var existingField = TeaTime[existingFieldName];
-                    string BeginTime = existingField["BeginTime"]?.ToString();
-                    string EndTime = existingField["EndTime"]?.ToString();
-                    TeaBeginTime = DateTime.ParseExact(BeginTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                    TeaEndTime = DateTime.ParseExact(EndTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                    if (NowTime >= TeaBeginTime && NowTime <= TeaEndTime)
+                    else
                     {
                         time = true;
                     }
-                }
-                else
-                {
-                    time = true;
                 }
             }
             else

@@ -1,6 +1,8 @@
 using Common;
+using Model;
 using Newtonsoft.Json.Linq;
 using SQLDAL;
+using SqlSugar;
 using WinForm;
 
 namespace StudentTerminal
@@ -16,7 +18,7 @@ namespace StudentTerminal
         {
             InitializeComponent();
         }
-
+        static SqlSugarClient db = SqlSugarHelper.GetSugarClient();
         private void StudentForm_Load(object sender, EventArgs e)
         {
             StuTimer.Start();
@@ -264,81 +266,42 @@ namespace StudentTerminal
 
         private void StuTimer_Tick(object sender, EventArgs e)
         {
-            DateTime StuBeginTime;
-            DateTime StuEndTime;
-            DateTime NowTime = DateTime.Now;
-            JObject jsonObj = JObject.Parse(SqlDbHelper.json);
-            var StuTime = jsonObj["AppSettings"]["StuTimeSetting"] as JObject;
-            if (StuTime != null && StuTime.HasValues)
+            var faculties = UserHelper.bios.Faculties;
+            var specialty = UserHelper.bios.Specialty;
+            var grade = UserHelper.bios.Grade;
+
+            var currentTime = DateTime.Now;
+
+            var timeSettings = db.Queryable<DSS_3_8_TimeSetting>()
+                .Where(t => t.TimeType == "StuTeam")
+                .ToList();
+            if(timeSettings.Count > 0)
             {
-                bool found = false;
-                string existingFieldName = null;
-
-                foreach (var item in StuTime)
+                foreach (var setting in timeSettings)
                 {
-                    var field = (JObject)item.Value;
-
-                    // 检查字段是否匹配 Faculties、Specialty 和 Grade
-                    if(field["Faculties"]?.ToString() == "学院")
+                    if ((setting.Faculties == "学院" && setting.Specialty == "专业" && setting.Grade == "年级") ||
+                        (setting.Faculties == faculties && setting.Specialty == specialty && setting.Grade == grade))
                     {
-                        if(field["Specialty"]?.ToString() == "专业")
+                        DateTime beginTime = DateTime.ParseExact(setting.BeginTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                        DateTime endTime = DateTime.ParseExact(setting.EndTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+                        if (currentTime >= beginTime && currentTime <= endTime)
                         {
-                            if(field["Grade"]?.ToString() == "年级")
-                            {
-                                found = true;
-                                existingFieldName = item.Key;
-                                break;
-                            }
-                            else if(field["Grade"]?.ToString() == UserHelper.bios.Grade)
-                            {
-                                found = true;
-                                existingFieldName = item.Key;
-                                break;
-                            }
+                            // 时间范围内
+                            time = true;
+                            break;
                         }
-                        else if(field["Specialty"]?.ToString() == UserHelper.bios.Specialty)
+                        else
                         {
-                            if (field["Grade"]?.ToString() == "年级")
-                            {
-                                found = true;
-                                existingFieldName = item.Key;
-                                break;
-                            }
-                            else if (field["Grade"]?.ToString() == UserHelper.bios.Grade)
-                            {
-                                found = true;
-                                existingFieldName = item.Key;
-                                break;
-                            }
+                            time = false;
+                            break;
                         }
                     }
-                    else if (field["Faculties"]?.ToString() == UserHelper.bios.Faculties &&
-                        field["Specialty"]?.ToString() == UserHelper.bios.Specialty &&
-                        field["Grade"]?.ToString() == UserHelper.bios.Grade)
-                    {
-                        found = true;
-                        existingFieldName = item.Key;
-                        break;
-                    }
-                }
-                if (found)
-                {
-                    var existingField = StuTime[existingFieldName];
-                    string BeginTime = existingField["BeginTime"]?.ToString();
-                    string EndTime = existingField["EndTime"]?.ToString();
-                    StuBeginTime = DateTime.ParseExact(BeginTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                    StuEndTime = DateTime.ParseExact(EndTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-
-                    if (NowTime >= StuBeginTime && NowTime <= StuEndTime)
+                    else
                     {
                         time = true;
                     }
                 }
-                else
-                {
-                    time = true;
-                }
-                
             }
             else
             {
