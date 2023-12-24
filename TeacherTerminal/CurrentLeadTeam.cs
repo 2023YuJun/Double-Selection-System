@@ -217,7 +217,7 @@ namespace TeacherTerminal
         private void LoadChoice()
         {
             panel4.Controls.Clear();
-            var CT = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString()).ToList();
+            var CT = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString() && it.ChoiceType == "CT").ToList();
             if (PTC.Any(panel => panel == null))
             {
                 for (int i = teachoicesize; i > 0; i--)

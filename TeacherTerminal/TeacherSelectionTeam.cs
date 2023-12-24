@@ -34,6 +34,7 @@ namespace TeacherTerminal
             if (currentchoice != null)
             {
                 MessageBox.Show("你已有带领队伍，无法再次选择队伍，如需修改请点击当前带领队伍");
+                panel1.Visible = false;
                 return;
             }
             LoadChoice();
