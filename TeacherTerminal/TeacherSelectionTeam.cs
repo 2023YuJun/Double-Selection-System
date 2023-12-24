@@ -30,7 +30,7 @@ namespace TeacherTerminal
         TextBox[] TBTC = new TextBox[teachoicesize];
         private void TeacherSelectionTeam_Load(object sender, EventArgs e)
         {
-            var currentchoice = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString()).ToList().FirstOrDefault();
+            var currentchoice = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString() && it.ChoiceType == "CT").ToList().FirstOrDefault();
             if (currentchoice != null)
             {
                 MessageBox.Show("你已有带领队伍，无法再次选择队伍，如需修改请点击当前带领队伍");

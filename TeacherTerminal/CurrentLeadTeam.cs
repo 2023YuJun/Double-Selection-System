@@ -28,7 +28,7 @@ namespace TeacherTerminal
         TextBox[] TBTC = new TextBox[teachoicesize];
         private void TeacherSelectionTeam_Load(object sender, EventArgs e)
         {
-            var SITC = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString()).ToList();
+            var SITC = db.Queryable<DSS_3_8_Choice>().Where(it => it.Tag == UserHelper.biot.TeacherID.ToString() && it.ChoiceType == "CT").ToList();
             if (!(SITC.Count > 0))
             {
                 panel16.Visible = false;
