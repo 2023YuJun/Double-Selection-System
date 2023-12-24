@@ -66,17 +66,17 @@ namespace TeacherTerminal
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var update = db.Queryable<DSS_3_8_BIOT>().Where(it => it.Account == UserHelper.user.Account).First();
-            update.Sex = textBox2.Text.Trim();
-            update.Faculties = textBox5.Text.Trim();
-            update.Specialty = textBox6.Text.Trim();
-            update.LeadTeam = textBox7.Text.Trim();
-            update.PersonalDeeds = textBox8.Text.Trim();
-            update.Contact = textBox4.Text.Trim();
-
-            var affectedRows = db.Updateable(update)
-                                        .UpdateColumns(it => new { it.Sex, it.Faculties, it.Specialty, it.LeadTeam, it.PersonalDeeds, it.Contact })
-                                        .ExecuteCommand();
+            var affectedRows = db.Updateable<DSS_3_8_BIOT>()
+                            .SetColumns(it => new DSS_3_8_BIOT 
+                            {   Sex = textBox2.Text.Trim(),
+                                Faculties= textBox5.Text.Trim(),
+                                Specialty= textBox6.Text.Trim(),
+                                LeadTeam= textBox7.Text.Trim(),
+                                PersonalDeeds = textBox8.Text.Trim(),
+                                Contact = textBox4.Text.Trim()
+                            })
+                            .Where(it => it.Account == UserHelper.user.Account)
+                            .ExecuteCommand();
             if (affectedRows > 0)
             {
                 MessageBox.Show("修改成功！");
