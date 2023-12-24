@@ -21,10 +21,6 @@ namespace SQLDAL
         public static string T5 = "[3_8_Messaging]";
         public static string T6 = "[3_8_TC]";
 
-        // 读取现有的配置文件内容
-        public static string ConfigFilePath = "D:\\编程练习\\Double-Selection-System\\SQLDAL\\appsettings.json";
-        public static string json = File.ReadAllText(ConfigFilePath);
-
         //获取数据库连接字符串
         public static string Connectionstring
         {
