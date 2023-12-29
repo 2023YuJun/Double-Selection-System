@@ -15,6 +15,7 @@ using System.Windows.Forms;
 
 namespace AdminTerminal
 {
+
     public partial class AutoMatchForm : Form
     {
         public AutoMatchForm()
@@ -29,18 +30,26 @@ namespace AdminTerminal
         static List<List<string>> groupscore = new List<List<string>>();
         private void AutoMatchForm_Load(object sender, EventArgs e)
         {
-            var result1 = db.Queryable<DSS_3_8_Choice, DSS_3_8_BIOT>((t1, t2) => new JoinQueryInfos(
-                            JoinType.Left, t1.ChoiceName == t2.TeacherName))
-                            .Where((t1, t2) => t1.ChoiceType == "TC")
-                            .OrderBy((t1, t2) => t1.Tag)
-                            .OrderBy((t1, t2) => t1.ChoiceID)
-                            .Select((t1, t2) => new
+            var result1 = db.Queryable<DSS_3_8_Choice>()
+                            .Where(it => it.ChoiceType == "TC" && it.ChoiceName != "")
+                            .Select(it => new DGV1
                             {
-                                TeamID = t1.Tag,
-                                TeaName = t1.ChoiceName,
-                                TeacherID = t2.TeacherID
+                                TeamID = it.Tag,
+                                TeacherName = it.ChoiceName,
+                                TeacherID = SqlFunc.Subqueryable<DSS_3_8_BIOT>().Where(t => t.TeacherName == it.ChoiceName).Select(t => t.TeacherID)
                             })
                             .ToList();
+            foreach (var item in result1)
+            {
+                if (item.TeacherID == 0 || item.TeacherID == null)
+                {
+                    var teacher = db.Queryable<DSS_3_8_BIOT>().Where(t => t.TeacherName.StartsWith($"{item.TeacherName}")).First();
+                    if (teacher != null)
+                    {
+                        item.TeacherID = teacher.TeacherID;
+                    }
+                }
+            }
             var result2 = db.Queryable<DSS_3_8_Choice, DSS_3_8_BIOTEAM>((t1, t2) => new JoinQueryInfos(
                             JoinType.Left, t1.ChoiceName == t2.TeamName))
                             .Where((t1, t2) => t1.ChoiceType == "CT")
@@ -395,5 +404,12 @@ namespace AdminTerminal
             dataGridView3.Width = dgvWidth;
         }
 
+    }
+
+    public class DGV1
+    {
+        public string? TeamID { get; set; }
+        public string? TeacherName { get; set; }
+        public int? TeacherID { get; set; }
     }
 }
