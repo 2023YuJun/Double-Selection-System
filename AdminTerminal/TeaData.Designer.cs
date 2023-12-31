@@ -29,386 +29,419 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeaData));
-            panel1 = new Panel();
-            panel2 = new Panel();
-            panel7 = new Panel();
-            dataGridView3 = new DataGridView();
-            dataGridView2 = new DataGridView();
-            panel6 = new Panel();
-            button4 = new Button();
-            button9 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            panel3 = new Panel();
-            panel5 = new Panel();
-            Grade_comboBox = new ComboBox();
-            label2 = new Label();
-            panel4 = new Panel();
-            College_comboBox = new ComboBox();
-            label1 = new Label();
-            panel8 = new Panel();
-            panel11 = new Panel();
-            button10 = new Button();
-            button7 = new Button();
-            button6 = new Button();
-            panel10 = new Panel();
-            dataGridView1 = new DataGridView();
-            panel9 = new Panel();
-            button8 = new Button();
-            button5 = new Button();
-            textBox3 = new TextBox();
-            comboBox1 = new ComboBox();
-            label4 = new Label();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            panel6.SuspendLayout();
-            panel3.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
-            panel8.SuspendLayout();
-            panel11.SuspendLayout();
-            panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel9.SuspendLayout();
-            SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.Grade_comboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.College_comboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel9.SuspendLayout();
+            this.SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(211, 226, 244);
-            panel1.Controls.Add(panel8);
-            panel1.Controls.Add(panel2);
-            panel1.Location = new Point(20, 20);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(840, 640);
-            panel1.TabIndex = 0;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(840, 640);
+            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
-            panel2.Controls.Add(panel7);
-            panel2.Controls.Add(panel3);
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(840, 640);
-            panel2.TabIndex = 0;
-            panel2.Visible = false;
+            this.panel2.Controls.Add(this.panel7);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(840, 640);
+            this.panel2.TabIndex = 0;
+            this.panel2.Visible = false;
             // 
             // panel7
             // 
-            panel7.Controls.Add(dataGridView3);
-            panel7.Controls.Add(dataGridView2);
-            panel7.Controls.Add(panel6);
-            panel7.Controls.Add(button3);
-            panel7.Controls.Add(button2);
-            panel7.Controls.Add(button1);
-            panel7.Location = new Point(10, 65);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(820, 560);
-            panel7.TabIndex = 1;
+            this.panel7.Controls.Add(this.dataGridView3);
+            this.panel7.Controls.Add(this.dataGridView2);
+            this.panel7.Controls.Add(this.panel6);
+            this.panel7.Controls.Add(this.button3);
+            this.panel7.Controls.Add(this.button2);
+            this.panel7.Controls.Add(this.button1);
+            this.panel7.Location = new System.Drawing.Point(10, 65);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(820, 560);
+            this.panel7.TabIndex = 1;
             // 
             // dataGridView3
             // 
-            dataGridView3.BackgroundColor = Color.White;
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(440, 0);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.RowTemplate.Height = 29;
-            dataGridView3.Size = new Size(380, 500);
-            dataGridView3.TabIndex = 7;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(440, 0);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 29;
+            this.dataGridView3.Size = new System.Drawing.Size(380, 500);
+            this.dataGridView3.TabIndex = 7;
             // 
             // dataGridView2
             // 
-            dataGridView2.BackgroundColor = Color.White;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(10, 0);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.RowTemplate.Height = 29;
-            dataGridView2.Size = new Size(380, 500);
-            dataGridView2.TabIndex = 6;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(10, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 29;
+            this.dataGridView2.Size = new System.Drawing.Size(380, 500);
+            this.dataGridView2.TabIndex = 6;
             // 
             // panel6
             // 
-            panel6.Controls.Add(button4);
-            panel6.Controls.Add(button9);
-            panel6.Location = new Point(10, 516);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(810, 40);
-            panel6.TabIndex = 5;
+            this.panel6.Controls.Add(this.button4);
+            this.panel6.Controls.Add(this.button9);
+            this.panel6.Location = new System.Drawing.Point(10, 516);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(810, 40);
+            this.panel6.TabIndex = 5;
             // 
             // button4
             // 
-            button4.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(590, 0);
-            button4.Name = "button4";
-            button4.Size = new Size(110, 40);
-            button4.TabIndex = 3;
-            button4.Text = "导入文件";
-            button4.UseVisualStyleBackColor = true;
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Location = new System.Drawing.Point(570, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(110, 30);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "导入文件";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
-            button9.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button9.Location = new Point(720, 0);
-            button9.Name = "button9";
-            button9.Size = new Size(90, 40);
-            button9.TabIndex = 0;
-            button9.Text = "保存";
-            button9.UseVisualStyleBackColor = true;
+            this.button9.BackColor = System.Drawing.Color.White;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button9.Location = new System.Drawing.Point(700, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(90, 30);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "保存";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
-            button3.BackgroundImageLayout = ImageLayout.Stretch;
-            button3.Location = new Point(396, 279);
-            button3.Name = "button3";
-            button3.Size = new Size(40, 35);
-            button3.TabIndex = 4;
-            button3.UseVisualStyleBackColor = true;
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(395, 281);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(40, 35);
+            this.button3.TabIndex = 4;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.Location = new Point(396, 219);
-            button2.Name = "button2";
-            button2.Size = new Size(40, 35);
-            button2.TabIndex = 3;
-            button2.UseVisualStyleBackColor = true;
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(395, 221);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 35);
+            this.button2.TabIndex = 3;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(396, 159);
-            button1.Name = "button1";
-            button1.Size = new Size(40, 35);
-            button1.TabIndex = 2;
-            button1.UseVisualStyleBackColor = true;
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(395, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 35);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
-            panel3.Controls.Add(panel5);
-            panel3.Controls.Add(panel4);
-            panel3.Location = new Point(10, 10);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(820, 50);
-            panel3.TabIndex = 0;
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Location = new System.Drawing.Point(10, 10);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(820, 50);
+            this.panel3.TabIndex = 0;
             // 
             // panel5
             // 
-            panel5.Controls.Add(Grade_comboBox);
-            panel5.Controls.Add(label2);
-            panel5.Location = new Point(215, 0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(220, 40);
-            panel5.TabIndex = 1;
+            this.panel5.Controls.Add(this.Grade_comboBox);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Location = new System.Drawing.Point(215, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(220, 40);
+            this.panel5.TabIndex = 1;
             // 
             // Grade_comboBox
             // 
-            Grade_comboBox.FormattingEnabled = true;
-            Grade_comboBox.Location = new Point(70, 5);
-            Grade_comboBox.Name = "Grade_comboBox";
-            Grade_comboBox.Size = new Size(130, 28);
-            Grade_comboBox.TabIndex = 1;
+            this.Grade_comboBox.FormattingEnabled = true;
+            this.Grade_comboBox.Location = new System.Drawing.Point(70, 5);
+            this.Grade_comboBox.Name = "Grade_comboBox";
+            this.Grade_comboBox.Size = new System.Drawing.Size(130, 28);
+            this.Grade_comboBox.TabIndex = 1;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(5, 5);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 27);
-            label2.TabIndex = 0;
-            label2.Text = "年级：";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(5, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "年级：";
             // 
             // panel4
             // 
-            panel4.Controls.Add(College_comboBox);
-            panel4.Controls.Add(label1);
-            panel4.Location = new Point(0, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(220, 40);
-            panel4.TabIndex = 0;
+            this.panel4.Controls.Add(this.College_comboBox);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 40);
+            this.panel4.TabIndex = 0;
             // 
             // College_comboBox
             // 
-            College_comboBox.FormattingEnabled = true;
-            College_comboBox.Location = new Point(70, 5);
-            College_comboBox.Name = "College_comboBox";
-            College_comboBox.Size = new Size(130, 28);
-            College_comboBox.TabIndex = 1;
+            this.College_comboBox.FormattingEnabled = true;
+            this.College_comboBox.Location = new System.Drawing.Point(70, 5);
+            this.College_comboBox.Name = "College_comboBox";
+            this.College_comboBox.Size = new System.Drawing.Size(130, 28);
+            this.College_comboBox.TabIndex = 1;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(5, 5);
-            label1.Name = "label1";
-            label1.Size = new Size(72, 27);
-            label1.TabIndex = 0;
-            label1.Text = "学院：";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "学院：";
             // 
             // panel8
             // 
-            panel8.Controls.Add(panel11);
-            panel8.Controls.Add(panel10);
-            panel8.Controls.Add(panel9);
-            panel8.Location = new Point(0, 0);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(840, 640);
-            panel8.TabIndex = 5;
+            this.panel8.Controls.Add(this.panel11);
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(840, 640);
+            this.panel8.TabIndex = 5;
             // 
             // panel11
             // 
-            panel11.Controls.Add(button10);
-            panel11.Controls.Add(button7);
-            panel11.Controls.Add(button6);
-            panel11.Location = new Point(10, 600);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(810, 40);
-            panel11.TabIndex = 2;
+            this.panel11.Controls.Add(this.button10);
+            this.panel11.Controls.Add(this.button7);
+            this.panel11.Controls.Add(this.button6);
+            this.panel11.Location = new System.Drawing.Point(10, 600);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(810, 40);
+            this.panel11.TabIndex = 2;
             // 
             // button10
             // 
-            button10.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button10.Location = new Point(600, 0);
-            button10.Name = "button10";
-            button10.Size = new Size(90, 40);
-            button10.TabIndex = 2;
-            button10.Text = "撤销";
-            button10.UseVisualStyleBackColor = true;
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button10.Location = new System.Drawing.Point(600, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(90, 30);
+            this.button10.TabIndex = 2;
+            this.button10.Text = "撤销";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            button7.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button7.Location = new Point(720, 0);
-            button7.Name = "button7";
-            button7.Size = new Size(90, 40);
-            button7.TabIndex = 1;
-            button7.Text = "保存";
-            button7.UseVisualStyleBackColor = true;
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button7.Location = new System.Drawing.Point(710, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(90, 30);
+            this.button7.TabIndex = 1;
+            this.button7.Text = "保存";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            button6.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.Location = new Point(480, 0);
-            button6.Name = "button6";
-            button6.Size = new Size(90, 40);
-            button6.TabIndex = 0;
-            button6.Text = "删除";
-            button6.UseVisualStyleBackColor = true;
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button6.Location = new System.Drawing.Point(490, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(90, 30);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "删除";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // panel10
             // 
-            panel10.Controls.Add(dataGridView1);
-            panel10.Location = new Point(10, 60);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(810, 535);
-            panel10.TabIndex = 1;
+            this.panel10.Controls.Add(this.dataGridView1);
+            this.panel10.Location = new System.Drawing.Point(10, 60);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(810, 535);
+            this.panel10.TabIndex = 1;
             // 
             // dataGridView1
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(5, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(800, 520);
-            dataGridView1.TabIndex = 0;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(5, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(800, 520);
+            this.dataGridView1.TabIndex = 0;
             // 
             // panel9
             // 
-            panel9.Controls.Add(button8);
-            panel9.Controls.Add(button5);
-            panel9.Controls.Add(textBox3);
-            panel9.Controls.Add(comboBox1);
-            panel9.Controls.Add(label4);
-            panel9.Location = new Point(10, 10);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(810, 50);
-            panel9.TabIndex = 0;
+            this.panel9.Controls.Add(this.button8);
+            this.panel9.Controls.Add(this.button5);
+            this.panel9.Controls.Add(this.textBox3);
+            this.panel9.Controls.Add(this.comboBox1);
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Location = new System.Drawing.Point(10, 10);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(810, 50);
+            this.panel9.TabIndex = 0;
             // 
             // button8
             // 
-            button8.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Location = new Point(690, 0);
-            button8.Name = "button8";
-            button8.Size = new Size(110, 40);
-            button8.TabIndex = 4;
-            button8.Text = "导入数据";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
+            this.button8.BackColor = System.Drawing.Color.White;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button8.Location = new System.Drawing.Point(690, 5);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(110, 30);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "导入数据";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            button5.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(600, 2);
-            button5.Name = "button5";
-            button5.Size = new Size(80, 35);
-            button5.TabIndex = 3;
-            button5.Text = "查询";
-            button5.UseVisualStyleBackColor = true;
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button5.Location = new System.Drawing.Point(595, 5);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(87, 30);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "查询";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(290, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(290, 27);
-            textBox3.TabIndex = 2;
+            this.textBox3.Location = new System.Drawing.Point(290, 5);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(290, 27);
+            this.textBox3.TabIndex = 2;
             // 
             // comboBox1
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(160, 5);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(120, 28);
-            comboBox1.TabIndex = 1;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(160, 5);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(120, 28);
+            this.comboBox1.TabIndex = 1;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(5, 5);
-            label4.Name = "label4";
-            label4.Size = new Size(152, 27);
-            label4.TabIndex = 0;
-            label4.Text = "信息查询条件：";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(5, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "信息查询条件：";
             // 
             // TeaData
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(182, 211, 245);
-            ClientSize = new Size(880, 680);
-            Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "TeaData";
-            Text = "StuData";
-            Load += TeaData_Load;
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            panel6.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(211)))), ((int)(((byte)(245)))));
+            this.ClientSize = new System.Drawing.Size(880, 680);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "TeaData";
+            this.Text = "StuData";
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
