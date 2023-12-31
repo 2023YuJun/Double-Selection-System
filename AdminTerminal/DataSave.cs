@@ -98,6 +98,46 @@ namespace AdminTerminal
         private void button2_Click(object sender, EventArgs e)
         {
             //导出全部表为Excel
+            try
+            {
+                // 获取保存路径
+                string directoryPath = textBox1.Text;
+
+                // 判断路径是否为空
+                if (string.IsNullOrEmpty(directoryPath))
+                {
+                    MessageBox.Show("请指定保存路径！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 确保目录存在
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                // 获取数据库中所有带有特定前缀的表格名称
+                var tableNames = GetTableNamesWithPrefix("DSS_3_8_");
+
+                // 遍历表格并导出到 Excel
+                foreach (var tableName in tableNames)
+                {
+                    // 构建 Excel 文件路径
+                    string excelFilePath = Path.Combine(directoryPath, $"{tableName}.xlsx");
+
+                    // 获取表格数据
+                    DataTable tableData = GetTableData(tableName);
+
+                    // 创建 Excel 文件
+                    CreateExcelFile(excelFilePath, tableData);
+                }
+
+                MessageBox.Show("导出成功！", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"导出失败：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void CreateExcelFile(string filePath, DataTable dataTable)
         {
@@ -148,6 +188,23 @@ namespace AdminTerminal
             return values.TrimEnd(' ', ',');
         }
 
-        
+        private string[] GetTableNamesWithPrefix(string prefix)
+        {
+            // 使用 SQL Sugar 查询数据库中所有带有特定前缀的表格名称
+            var tableNames = db.DbMaintenance.GetTableInfoList(true)
+                .Where(t => t.Name.StartsWith(prefix))
+                .Select(t => t.Name)
+                .ToArray();
+
+            return tableNames;
+        }
+
+        private DataTable GetTableData(string tableName)
+        {
+            // 使用 SQL 查询获取表格数据
+            string sql = $"SELECT * FROM {tableName}";
+            return db.Ado.GetDataTable(sql);
+
+        }
     }
 }
