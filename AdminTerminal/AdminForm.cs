@@ -215,6 +215,14 @@ namespace AdminTerminal
             AdmData AdmData = new AdmData();
             Ftool.Showform(panel4, AdmData);
         }
+        private void button17_Click(object sender, EventArgs e)
+        {
+            //数据备份
+            Ftool.Cheak_click(button17, ftool.C_btn);
+            ftool.C_btn = button17;
+            DataSave dataSave = new DataSave();
+            Ftool.Showform(panel4, dataSave);
+        }
         private void BtnTimer1_Tick(object sender, EventArgs e)
         {
             //账号设置计时器

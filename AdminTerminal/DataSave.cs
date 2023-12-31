@@ -25,10 +25,10 @@ namespace AdminTerminal
             LoadTableNamesToComboBox();
 
         }
-        
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             string tableName = comboBox1.SelectedItem.ToString(); ; // 替换成你的表名 // 查询表格信息并将结果加载到 DataGridView 中
             string sql = $"SELECT * FROM {tableName}"; System.Data.DataTable dataTable = db.Ado.GetDataTable(sql); // 将查询结果绑定到 DataGridView
             dataGridView1.DataSource = dataTable;
@@ -139,6 +139,18 @@ namespace AdminTerminal
                 MessageBox.Show($"导出失败：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlSugarHelper.CreateClassFile();
+                MessageBox.Show("实体类生成成功");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void CreateExcelFile(string filePath, DataTable dataTable)
         {
             string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='{filePath}';Extended Properties='Excel 12.0 Xml;HDR=YES;'";
@@ -206,5 +218,7 @@ namespace AdminTerminal
             return db.Ado.GetDataTable(sql);
 
         }
+
+        
     }
 }
