@@ -36,11 +36,17 @@
             button7 = new Button();
             button6 = new Button();
             panel10 = new Panel();
-            textBox4 = new TextBox();
+            panel13 = new Panel();
+            textBox2 = new TextBox();
+            button23 = new Button();
+            button22 = new Button();
+            button21 = new Button();
+            button20 = new Button();
+            dataGridView3 = new DataGridView();
             panel9 = new Panel();
             button8 = new Button();
             button5 = new Button();
-            textBox3 = new TextBox();
+            textBox1 = new TextBox();
             comboBox1 = new ComboBox();
             label4 = new Label();
             panel2 = new Panel();
@@ -68,6 +74,8 @@
             panel8.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
+            panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             panel9.SuspendLayout();
             panel2.SuspendLayout();
             panel7.SuspendLayout();
@@ -83,8 +91,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(211, 226, 244);
-            panel1.Controls.Add(panel2);
             panel1.Controls.Add(panel8);
+            panel1.Controls.Add(panel2);
             panel1.Location = new Point(20, 20);
             panel1.Name = "panel1";
             panel1.Size = new Size(840, 640);
@@ -97,7 +105,7 @@
             panel8.Controls.Add(panel9);
             panel8.Location = new Point(0, 0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(857, 640);
+            panel8.Size = new Size(840, 640);
             panel8.TabIndex = 5;
             // 
             // panel11
@@ -154,25 +162,113 @@
             // 
             // panel10
             // 
-            panel10.Controls.Add(textBox4);
+            panel10.Controls.Add(panel13);
+            panel10.Controls.Add(dataGridView3);
             panel10.Location = new Point(10, 60);
             panel10.Name = "panel10";
             panel10.Size = new Size(810, 535);
             panel10.TabIndex = 1;
             // 
-            // textBox4
+            // panel13
             // 
-            textBox4.Location = new Point(10, 10);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(797, 520);
-            textBox4.TabIndex = 0;
+            panel13.Controls.Add(textBox2);
+            panel13.Controls.Add(button23);
+            panel13.Controls.Add(button22);
+            panel13.Controls.Add(button21);
+            panel13.Controls.Add(button20);
+            panel13.Location = new Point(160, 485);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(489, 33);
+            panel13.TabIndex = 14;
+            // 
+            // textBox2
+            // 
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Microsoft YaHei UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.Location = new Point(205, 2);
+            textBox2.Margin = new Padding(0);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(81, 27);
+            textBox2.TabIndex = 0;
+            textBox2.Text = "1";
+            textBox2.TextAlign = HorizontalAlignment.Center;
+            textBox2.KeyPress += textBox2_KeyPress;
+            // 
+            // button23
+            // 
+            button23.BackColor = Color.White;
+            button23.FlatAppearance.BorderSize = 0;
+            button23.FlatStyle = FlatStyle.Flat;
+            button23.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button23.Location = new Point(368, 2);
+            button23.Name = "button23";
+            button23.Size = new Size(70, 27);
+            button23.TabIndex = 11;
+            button23.Text = ">>";
+            button23.UseVisualStyleBackColor = false;
+            button23.Click += button23_Click;
+            // 
+            // button22
+            // 
+            button22.BackColor = Color.White;
+            button22.FlatAppearance.BorderSize = 0;
+            button22.FlatStyle = FlatStyle.Flat;
+            button22.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button22.Location = new Point(292, 2);
+            button22.Name = "button22";
+            button22.Size = new Size(70, 27);
+            button22.TabIndex = 10;
+            button22.Text = ">";
+            button22.UseVisualStyleBackColor = false;
+            button22.Click += button22_Click;
+            // 
+            // button21
+            // 
+            button21.BackColor = Color.White;
+            button21.FlatAppearance.BorderSize = 0;
+            button21.FlatStyle = FlatStyle.Flat;
+            button21.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button21.Location = new Point(130, 2);
+            button21.Name = "button21";
+            button21.Size = new Size(70, 27);
+            button21.TabIndex = 9;
+            button21.Text = "<";
+            button21.UseVisualStyleBackColor = false;
+            button21.Click += button21_Click;
+            // 
+            // button20
+            // 
+            button20.BackColor = Color.White;
+            button20.FlatAppearance.BorderSize = 0;
+            button20.FlatStyle = FlatStyle.Flat;
+            button20.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button20.Location = new Point(54, 2);
+            button20.Name = "button20";
+            button20.Size = new Size(70, 27);
+            button20.TabIndex = 8;
+            button20.Text = "<<";
+            button20.UseVisualStyleBackColor = false;
+            button20.Click += button20_Click;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.AllowUserToAddRows = false;
+            dataGridView3.AllowUserToDeleteRows = false;
+            dataGridView3.BackgroundColor = Color.White;
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(10, 10);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersVisible = false;
+            dataGridView3.RowHeadersWidth = 51;
+            dataGridView3.RowTemplate.Height = 29;
+            dataGridView3.Size = new Size(790, 470);
+            dataGridView3.TabIndex = 0;
             // 
             // panel9
             // 
             panel9.Controls.Add(button8);
             panel9.Controls.Add(button5);
-            panel9.Controls.Add(textBox3);
+            panel9.Controls.Add(textBox1);
             panel9.Controls.Add(comboBox1);
             panel9.Controls.Add(label4);
             panel9.Location = new Point(10, 10);
@@ -209,15 +305,16 @@
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
-            // textBox3
+            // textBox1
             // 
-            textBox3.Location = new Point(290, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(290, 27);
-            textBox3.TabIndex = 2;
+            textBox1.Location = new Point(290, 5);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(290, 27);
+            textBox1.TabIndex = 2;
             // 
             // comboBox1
             // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(160, 5);
             comboBox1.Name = "comboBox1";
@@ -259,6 +356,8 @@
             // 
             // dataGridView2
             // 
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
             dataGridView2.BackgroundColor = Color.White;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Location = new Point(440, 0);
@@ -270,6 +369,8 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(10, 0);
@@ -379,6 +480,7 @@
             // 
             // Specilaty_comboBox
             // 
+            Specilaty_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             Specilaty_comboBox.FormattingEnabled = true;
             Specilaty_comboBox.Location = new Point(70, 5);
             Specilaty_comboBox.Name = "Specilaty_comboBox";
@@ -406,6 +508,7 @@
             // 
             // Grade_comboBox
             // 
+            Grade_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             Grade_comboBox.FormattingEnabled = true;
             Grade_comboBox.Location = new Point(70, 5);
             Grade_comboBox.Name = "Grade_comboBox";
@@ -433,6 +536,7 @@
             // 
             // College_comboBox
             // 
+            College_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             College_comboBox.FormattingEnabled = true;
             College_comboBox.Location = new Point(70, 5);
             College_comboBox.Name = "College_comboBox";
@@ -468,7 +572,9 @@
             panel8.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel10.ResumeLayout(false);
-            panel10.PerformLayout();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel2.ResumeLayout(false);
@@ -513,12 +619,11 @@
         private Panel panel8;
         private Panel panel9;
         private Button button5;
-        private TextBox textBox3;
+        private TextBox textBox1;
         private ComboBox comboBox1;
         private Label label4;
         private Panel panel11;
         private Panel panel10;
-        private TextBox textBox4;
         private Button button7;
         private Button button6;
         private Button button8;
@@ -528,5 +633,12 @@
         private OpenFileDialog openFileDialog1;
         private DataGridView dataGridView2;
         private DataGridView dataGridView1;
+        private DataGridView dataGridView3;
+        private Panel panel13;
+        private TextBox textBox2;
+        private Button button23;
+        private Button button22;
+        private Button button21;
+        private Button button20;
     }
 }
