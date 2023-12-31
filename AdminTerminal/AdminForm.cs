@@ -191,17 +191,29 @@ namespace AdminTerminal
         private void button14_Click(object sender, EventArgs e)
         {
             //学生信息管理
+            Ftool.Cheak_click(button14, ftool.C_btn);
+            ftool.C_btn = button14;
+            StuData stuData = new StuData();
+            Ftool.Showform(panel4, stuData);
 
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             //导师信息管理
+            Ftool.Cheak_click(button15, ftool.C_btn);
+            ftool.C_btn = button15;
+            TeaData TeaData = new TeaData();
+            Ftool.Showform(panel4, TeaData);
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            //队伍信息管理
+            //管理员信息管理
+            Ftool.Cheak_click(button16, ftool.C_btn);
+            ftool.C_btn = button16;
+            AdmData AdmData = new AdmData();
+            Ftool.Showform(panel4, AdmData);
         }
         private void BtnTimer1_Tick(object sender, EventArgs e)
         {
