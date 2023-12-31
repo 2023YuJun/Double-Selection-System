@@ -68,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             panel3.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel8
@@ -75,7 +76,7 @@
             panel8.Controls.Add(panel11);
             panel8.Controls.Add(panel10);
             panel8.Controls.Add(panel9);
-            panel8.Location = new Point(900, 20);
+            panel8.Location = new Point(0, 0);
             panel8.Name = "panel8";
             panel8.Size = new Size(840, 640);
             panel8.TabIndex = 5;
@@ -310,7 +311,7 @@
             panel2.Controls.Add(button3);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button1);
-            panel2.Location = new Point(23, 678);
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(837, 622);
             panel2.TabIndex = 1;
@@ -425,6 +426,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(211, 226, 244);
+            panel1.Controls.Add(panel8);
+            panel1.Controls.Add(panel2);
             panel1.Location = new Point(20, 20);
             panel1.Name = "panel1";
             panel1.Size = new Size(840, 640);
@@ -435,13 +438,12 @@
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(182, 211, 245);
-            ClientSize = new Size(1827, 1338);
-            Controls.Add(panel2);
-            Controls.Add(panel8);
+            ClientSize = new Size(880, 680);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AdmData";
             Text = "AdmData";
+            Load += AdmData_Load;
             panel8.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel10.ResumeLayout(false);
@@ -454,6 +456,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             panel3.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 

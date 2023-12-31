@@ -26,6 +26,7 @@ namespace AdminTerminal
         {
             InitializeComponent();
         }
+
         static SqlSugarClient db = SqlSugarHelper.GetSugarClient();
         private BindingList<DSS_3_8_BIOS> deletedRowsList = new BindingList<DSS_3_8_BIOS>();
         private BindingList<DSS_3_8_BIOS> bindingList;
@@ -311,8 +312,8 @@ namespace AdminTerminal
 
                             // 将不重复项分别绑定到 ComboBox 控件
                             College_comboBox.DataSource = faculties;
-                            Grade_comboBox.DataSource = specialties;
-                            Specilaty_comboBox.DataSource = grades;
+                            Grade_comboBox.DataSource = grades;
+                            Specilaty_comboBox.DataSource = specialties; 
                         }
                         else
                         {
@@ -358,7 +359,7 @@ namespace AdminTerminal
                         {
                             Account = account,
                             Password = "123",
-                            SecretKey = "",
+                            SecretKey = null,
                             Grade = "Stu"
                             // 添加属性赋值
                         };
@@ -379,7 +380,7 @@ namespace AdminTerminal
                     if (db.DbMaintenance.IsAnyTable("DSS_3_8_BIOS"))
                     {
                         // 在数据库中删除重复项
-                        db.Ado.ExecuteCommand("WITH cte AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY StudentName, Account, Faculties, Specialty, Grade ORDER BY Account) AS rn FROM DSS_3_8_BIOS) DELETE FROM cte WHERE rn > 1");
+                        db.Ado.ExecuteCommand("WITH cte AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY StudentName, Account ORDER BY Account) AS rn FROM DSS_3_8_BIOS) DELETE FROM cte WHERE rn > 1");
                         
                         MessageBox.Show("数据保存成功");
                     }
@@ -399,67 +400,6 @@ namespace AdminTerminal
             }
         }
         #endregion
-
-        // 将删除的行数据保存到 BindingList<DSS_3_8_BIOS> 中
-        private void SaveDeletedRowDataToBindingList(DataGridViewRow deletedRow)
-        {
-            DSS_3_8_BIOS deletedData = new DSS_3_8_BIOS();
-
-            // 复制被删除行的数据到 deletedData 对象
-            foreach (DataGridViewCell cell in deletedRow.Cells)
-            {
-                // 根据 DataGridView 中的列顺序将值添加到 deletedData 对象中
-                int columnIndex = cell.ColumnIndex;
-                if (columnIndex == 0) deletedData.StudentID = Convert.ToInt32(cell.Value);
-                else if (columnIndex == 1) deletedData.StudentName = cell.Value?.ToString();
-                else if (columnIndex == 2) deletedData.Account = cell.Value?.ToString();
-                else if (columnIndex == 3) deletedData.Sex = cell.Value?.ToString();
-                else if (columnIndex == 4) deletedData.Faculties = cell.Value?.ToString();
-                else if (columnIndex == 5) deletedData.Specialty = cell.Value?.ToString();
-                else if (columnIndex == 6) deletedData.Grade = cell.Value?.ToString();
-                else if (columnIndex == 7) deletedData.Class = cell.Value?.ToString();
-                else if (columnIndex == 8) deletedData.YourTeam = cell.Value?.ToString();
-                else if (columnIndex == 9) deletedData.Duty = cell.Value?.ToString();
-                else if (columnIndex == 10) deletedData.Instructor = cell.Value?.ToString();
-            }
-
-            // 将删除的行数据添加到 BindingList
-            deletedRowsList.Add(deletedData);
-        }
-        // 检查列名是否与数据库表的列名匹配
-        private bool CheckColumnNames(DataColumnCollection columns)
-        {
-            List<string> databaseColumnNames = db.DbMaintenance.GetColumnInfosByTableName("DSS_3_8_BIOS")
-                            .Select(c => c.DbColumnName)
-                            .Where(name => !name.Contains("ID"))
-                            .ToList();
-
-            // 获取 Excel 表格的列名
-            List<string> excelColumnNames = columns.Cast<DataColumn>()
-                             .Select(column => column.ColumnName)
-                             .ToList();
-
-            // 检查 Excel 表格的列名是否与数据库表的列名一一对应
-            return databaseColumnNames.SequenceEqual(excelColumnNames);
-        }
-
-        // 获取列的不重复项
-        private List<string> GetDistinctValues(DataTable dataTable, string columnName)
-        {
-            List<string> distinctValues = new List<string>();
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                string value = row[columnName]?.ToString();
-                if (!string.IsNullOrEmpty(value) && !distinctValues.Contains(value))
-                {
-                    distinctValues.Add(value);
-                }
-            }
-
-            return distinctValues;
-        }
-
         #region DGV分页
         private void LoadDGV(int currentPage = 1)
         {
@@ -542,6 +482,67 @@ namespace AdminTerminal
             }
         }
         #endregion
+        // 将删除的行数据保存到 BindingList<DSS_3_8_BIOS> 中
+        private void SaveDeletedRowDataToBindingList(DataGridViewRow deletedRow)
+        {
+            DSS_3_8_BIOS deletedData = new DSS_3_8_BIOS();
+
+            // 复制被删除行的数据到 deletedData 对象
+            foreach (DataGridViewCell cell in deletedRow.Cells)
+            {
+                // 根据 DataGridView 中的列顺序将值添加到 deletedData 对象中
+                int columnIndex = cell.ColumnIndex;
+                if (columnIndex == 0) deletedData.StudentID = Convert.ToInt32(cell.Value);
+                else if (columnIndex == 1) deletedData.StudentName = cell.Value?.ToString();
+                else if (columnIndex == 2) deletedData.Account = cell.Value?.ToString();
+                else if (columnIndex == 3) deletedData.Sex = cell.Value?.ToString();
+                else if (columnIndex == 4) deletedData.Faculties = cell.Value?.ToString();
+                else if (columnIndex == 5) deletedData.Specialty = cell.Value?.ToString();
+                else if (columnIndex == 6) deletedData.Grade = cell.Value?.ToString();
+                else if (columnIndex == 7) deletedData.Class = cell.Value?.ToString();
+                else if (columnIndex == 8) deletedData.YourTeam = cell.Value?.ToString();
+                else if (columnIndex == 9) deletedData.Duty = cell.Value?.ToString();
+                else if (columnIndex == 10) deletedData.Instructor = cell.Value?.ToString();
+            }
+
+            // 将删除的行数据添加到 BindingList
+            deletedRowsList.Add(deletedData);
+        }
+        // 检查列名是否与数据库表的列名匹配
+        private bool CheckColumnNames(DataColumnCollection columns)
+        {
+            List<string> databaseColumnNames = db.DbMaintenance.GetColumnInfosByTableName("DSS_3_8_BIOS")
+                            .Select(c => c.DbColumnName)
+                            .Where(name => !name.Contains("ID"))
+                            .ToList();
+
+            // 获取 Excel 表格的列名
+            List<string> excelColumnNames = columns.Cast<DataColumn>()
+                             .Select(column => column.ColumnName)
+                             .ToList();
+
+            // 检查 Excel 表格的列名是否与数据库表的列名一一对应
+            return databaseColumnNames.SequenceEqual(excelColumnNames);
+        }
+
+        // 获取列的不重复项
+        private List<string> GetDistinctValues(DataTable dataTable, string columnName)
+        {
+            List<string> distinctValues = new List<string>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                string value = row[columnName]?.ToString();
+                if (!string.IsNullOrEmpty(value) && !distinctValues.Contains(value))
+                {
+                    distinctValues.Add(value);
+                }
+            }
+
+            return distinctValues;
+        }
+
+        
     }
 }
 

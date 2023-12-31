@@ -21,7 +21,7 @@ namespace Model
            /// Nullable:False
            /// </summary>           
            [SugarColumn(IsIdentity=true)]
-           public int TeamID {get;set;}
+           public int AdmID {get;set;}
 
            /// <summary>
            /// Desc:
