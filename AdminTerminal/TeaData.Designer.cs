@@ -36,11 +36,17 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel9 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,7 +61,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.Grade_comboBox = new System.Windows.Forms.ComboBox();
+            this.Specialty_comboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.College_comboBox = new System.Windows.Forms.ComboBox();
@@ -64,6 +70,7 @@
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,9 +86,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel8);
-            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(12, 20);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(840, 640);
             this.panel1.TabIndex = 0;
@@ -150,29 +157,113 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.panel12);
             this.panel10.Controls.Add(this.dataGridView1);
             this.panel10.Location = new System.Drawing.Point(10, 60);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(810, 535);
             this.panel10.TabIndex = 1;
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.textBox2);
+            this.panel12.Controls.Add(this.button23);
+            this.panel12.Controls.Add(this.button22);
+            this.panel12.Controls.Add(this.button21);
+            this.panel12.Controls.Add(this.button20);
+            this.panel12.Location = new System.Drawing.Point(160, 485);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(489, 33);
+            this.panel12.TabIndex = 15;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(205, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(81, 27);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.Text = "1";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // button23
+            // 
+            this.button23.BackColor = System.Drawing.Color.White;
+            this.button23.FlatAppearance.BorderSize = 0;
+            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button23.Location = new System.Drawing.Point(368, 2);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(70, 27);
+            this.button23.TabIndex = 11;
+            this.button23.Text = ">>";
+            this.button23.UseVisualStyleBackColor = false;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
+            // 
+            // button22
+            // 
+            this.button22.BackColor = System.Drawing.Color.White;
+            this.button22.FlatAppearance.BorderSize = 0;
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button22.Location = new System.Drawing.Point(292, 2);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(70, 27);
+            this.button22.TabIndex = 10;
+            this.button22.Text = ">";
+            this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.Color.White;
+            this.button21.FlatAppearance.BorderSize = 0;
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button21.Location = new System.Drawing.Point(130, 2);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(70, 27);
+            this.button21.TabIndex = 9;
+            this.button21.Text = "<";
+            this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.White;
+            this.button20.FlatAppearance.BorderSize = 0;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button20.Location = new System.Drawing.Point(54, 2);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(70, 27);
+            this.button20.TabIndex = 8;
+            this.button20.Text = "<<";
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 520);
+            this.dataGridView1.Size = new System.Drawing.Size(790, 470);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.button8);
             this.panel9.Controls.Add(this.button5);
-            this.panel9.Controls.Add(this.textBox3);
+            this.panel9.Controls.Add(this.textBox1);
             this.panel9.Controls.Add(this.comboBox1);
             this.panel9.Controls.Add(this.label4);
             this.panel9.Location = new System.Drawing.Point(10, 10);
@@ -192,7 +283,7 @@
             this.button8.TabIndex = 4;
             this.button8.Text = "导入数据";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button5
             // 
@@ -208,12 +299,12 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox3
+            // textBox1
             // 
-            this.textBox3.Location = new System.Drawing.Point(290, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(290, 27);
-            this.textBox3.TabIndex = 2;
+            this.textBox1.Location = new System.Drawing.Point(290, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(290, 27);
+            this.textBox1.TabIndex = 2;
             // 
             // comboBox1
             // 
@@ -259,6 +350,8 @@
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(440, 0);
@@ -271,6 +364,8 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(10, 0);
@@ -371,20 +466,20 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.Grade_comboBox);
+            this.panel5.Controls.Add(this.Specialty_comboBox);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Location = new System.Drawing.Point(215, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(220, 40);
             this.panel5.TabIndex = 1;
             // 
-            // Grade_comboBox
+            // Specialty_comboBox
             // 
-            this.Grade_comboBox.FormattingEnabled = true;
-            this.Grade_comboBox.Location = new System.Drawing.Point(70, 5);
-            this.Grade_comboBox.Name = "Grade_comboBox";
-            this.Grade_comboBox.Size = new System.Drawing.Size(130, 28);
-            this.Grade_comboBox.TabIndex = 1;
+            this.Specialty_comboBox.FormattingEnabled = true;
+            this.Specialty_comboBox.Location = new System.Drawing.Point(70, 5);
+            this.Specialty_comboBox.Name = "Specialty_comboBox";
+            this.Specialty_comboBox.Size = new System.Drawing.Size(130, 28);
+            this.Specialty_comboBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -394,7 +489,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 25);
             this.label2.TabIndex = 0;
-            this.label2.Text = "年级：";
+            this.label2.Text = "专业：";
             // 
             // panel4
             // 
@@ -434,10 +529,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TeaData";
             this.Text = "StuData";
+            this.Load += new System.EventHandler(this.TeaData_Load);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -461,7 +559,7 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel5;
-        private ComboBox Grade_comboBox;
+        private ComboBox Specialty_comboBox;
         private Label label2;
         private Panel panel4;
         private ComboBox College_comboBox;
@@ -474,7 +572,7 @@
         private Panel panel8;
         private Panel panel9;
         private Button button5;
-        private TextBox textBox3;
+        private TextBox textBox1;
         private ComboBox comboBox1;
         private Label label4;
         private Panel panel11;
@@ -488,5 +586,11 @@
         private DataGridView dataGridView1;
         private DataGridView dataGridView3;
         private DataGridView dataGridView2;
+        private Panel panel12;
+        private TextBox textBox2;
+        private Button button23;
+        private Button button22;
+        private Button button21;
+        private Button button20;
     }
 }
