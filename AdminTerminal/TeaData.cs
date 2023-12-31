@@ -17,10 +17,6 @@ namespace AdminTerminal
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void button8_Click(object sender, EventArgs e)
         {
             // 切换Panel的可见性
@@ -28,15 +24,74 @@ namespace AdminTerminal
             panel8.Visible = false;
         }
 
+
         private void TeaData_Load(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(new object[] { "所有导师信息", "导师职工号搜索", "导师姓名搜索",
-            "队伍名称" });
-
-            College_comboBox.Items.AddRange(new object[] { "第二临床医学院", "医学检验学院", "护理学院",
-                "药学院","公共卫生学院", "人文与管理学院","生物医学工程学院","外国语学院" });
-            Grade_comboBox.Items.AddRange(new object[] { "2020级", "2021级", "2022级", "2023级" });
+            comboBox1.Items.AddRange(new object[] { "所有导师信息", "导师职工号搜索", "导师姓名搜索","带领队伍搜索" });
         }
+        #region 导入保存页面
+        //右箭头
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //第二个右箭头
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //垃圾桶
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //导入文件
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //保存
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region 信息查询页
+        //查询
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //导入数据
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        //删除
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //撤销
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //保存
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }
