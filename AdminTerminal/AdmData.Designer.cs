@@ -96,7 +96,7 @@
             this.button10.BackColor = System.Drawing.Color.White;
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button10.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button10.Location = new System.Drawing.Point(600, 3);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(90, 30);
@@ -109,7 +109,7 @@
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button7.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button7.Location = new System.Drawing.Point(710, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(90, 30);
@@ -122,7 +122,7 @@
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button6.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button6.Location = new System.Drawing.Point(490, 3);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(90, 30);
@@ -168,7 +168,7 @@
             this.button11.BackColor = System.Drawing.Color.White;
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button11.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button11.Location = new System.Drawing.Point(368, 2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(70, 27);
@@ -181,7 +181,7 @@
             this.button12.BackColor = System.Drawing.Color.White;
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button12.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button12.Location = new System.Drawing.Point(292, 2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(70, 27);
@@ -194,7 +194,7 @@
             this.button13.BackColor = System.Drawing.Color.White;
             this.button13.FlatAppearance.BorderSize = 0;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button13.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button13.Location = new System.Drawing.Point(130, 2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(70, 27);
@@ -207,7 +207,7 @@
             this.button14.BackColor = System.Drawing.Color.White;
             this.button14.FlatAppearance.BorderSize = 0;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button14.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button14.Location = new System.Drawing.Point(54, 2);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(70, 27);
@@ -246,7 +246,7 @@
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button8.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button8.Location = new System.Drawing.Point(690, 5);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(110, 30);
@@ -259,7 +259,7 @@
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button5.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button5.Location = new System.Drawing.Point(595, 5);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(87, 30);
@@ -286,7 +286,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(5, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 25);
@@ -348,7 +348,7 @@
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button9.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button9.Location = new System.Drawing.Point(700, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(90, 30);
@@ -361,7 +361,7 @@
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             this.button4.Location = new System.Drawing.Point(570, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 30);

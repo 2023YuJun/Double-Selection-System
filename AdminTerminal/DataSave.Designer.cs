@@ -28,139 +28,139 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            dataGridView1 = new DataGridView();
+            button1 = new Button();
+            textBox1 = new TextBox();
+            comboBox1 = new ComboBox();
+            panel1 = new Panel();
+            button3 = new Button();
+            label1 = new Label();
+            button2 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 52);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 32;
-            this.dataGridView1.Size = new System.Drawing.Size(793, 540);
-            this.dataGridView1.TabIndex = 0;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(25, 52);
+            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.RowTemplate.Height = 32;
+            dataGridView1.Size = new Size(793, 540);
+            dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(493, 599);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "导出当前表";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.BackColor = Color.White;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(493, 599);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(154, 30);
+            button1.TabIndex = 1;
+            button1.Text = "导出当前表";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(25, 599);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(448, 27);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "D:\\";
+            textBox1.BackColor = Color.White;
+            textBox1.Location = new Point(25, 599);
+            textBox1.Margin = new Padding(2);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(448, 27);
+            textBox1.TabIndex = 2;
+            textBox1.Text = "D:\\";
             // 
             // comboBox1
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 16);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(288, 28);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            comboBox1.BackColor = Color.White;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(127, 16);
+            comboBox1.Margin = new Padding(2);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(288, 28);
+            comboBox1.TabIndex = 3;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(20, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(840, 640);
-            this.panel1.TabIndex = 4;
+            panel1.BackColor = Color.FromArgb(211, 226, 244);
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(comboBox1);
+            panel1.Location = new Point(20, 20);
+            panel1.Margin = new Padding(0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(840, 640);
+            panel1.TabIndex = 4;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(664, 15);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(154, 30);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "生成实体类";
-            this.button3.UseVisualStyleBackColor = true;
+            button3.BackColor = Color.White;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(664, 15);
+            button3.Margin = new Padding(2);
+            button3.Name = "button3";
+            button3.Size = new Size(154, 30);
+            button3.TabIndex = 6;
+            button3.Text = "生成实体类";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(25, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "数据库表:";
+            label1.AutoSize = true;
+            label1.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(25, 17);
+            label1.Name = "label1";
+            label1.Size = new Size(98, 25);
+            label1.TabIndex = 5;
+            label1.Text = "数据库表:";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(664, 599);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 30);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "导出全部表";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.BackColor = Color.White;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(664, 599);
+            button2.Name = "button2";
+            button2.Size = new Size(154, 30);
+            button2.TabIndex = 4;
+            button2.Text = "导出全部表";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // DataSave
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(211)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(880, 680);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "DataSave";
-            this.Text = "DataSave";
-            this.Load += new System.EventHandler(this.DataSave_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(182, 211, 245);
+            ClientSize = new Size(880, 680);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
+            Name = "DataSave";
+            Text = "DataSave";
+            Load += DataSave_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
