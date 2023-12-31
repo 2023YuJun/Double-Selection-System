@@ -61,7 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             panel3.SuspendLayout();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel8
@@ -69,7 +68,7 @@
             panel8.Controls.Add(panel11);
             panel8.Controls.Add(panel10);
             panel8.Controls.Add(panel9);
-            panel8.Location = new Point(0, 0);
+            panel8.Location = new Point(999, 20);
             panel8.Name = "panel8";
             panel8.Size = new Size(840, 640);
             panel8.TabIndex = 5;
@@ -87,7 +86,7 @@
             // 
             // button10
             // 
-            button10.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button10.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button10.Location = new Point(600, 0);
             button10.Name = "button10";
             button10.Size = new Size(90, 40);
@@ -97,7 +96,7 @@
             // 
             // button7
             // 
-            button7.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button7.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button7.Location = new Point(720, 0);
             button7.Name = "button7";
             button7.Size = new Size(90, 40);
@@ -107,7 +106,7 @@
             // 
             // button6
             // 
-            button6.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button6.Location = new Point(480, 0);
             button6.Name = "button6";
             button6.Size = new Size(90, 40);
@@ -148,7 +147,7 @@
             // 
             // button8
             // 
-            button8.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button8.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button8.Location = new Point(690, 0);
             button8.Name = "button8";
             button8.Size = new Size(110, 40);
@@ -159,7 +158,7 @@
             // 
             // button5
             // 
-            button5.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button5.Location = new Point(600, 2);
             button5.Name = "button5";
             button5.Size = new Size(80, 35);
@@ -185,7 +184,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(5, 5);
             label4.Name = "label4";
             label4.Size = new Size(152, 27);
@@ -200,7 +199,7 @@
             panel2.Controls.Add(button3);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button1);
-            panel2.Location = new Point(0, 0);
+            panel2.Location = new Point(23, 731);
             panel2.Name = "panel2";
             panel2.Size = new Size(837, 622);
             panel2.TabIndex = 1;
@@ -238,7 +237,7 @@
             // 
             // button9
             // 
-            button9.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button9.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button9.Location = new Point(730, 0);
             button9.Name = "button9";
             button9.Size = new Size(90, 40);
@@ -248,7 +247,7 @@
             // 
             // button4
             // 
-            button4.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Font = new Font("方正兰亭特黑_GBK", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button4.Location = new Point(590, 0);
             button4.Name = "button4";
             button4.Size = new Size(110, 40);
@@ -289,8 +288,6 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(211, 226, 244);
-            panel1.Controls.Add(panel8);
-            panel1.Controls.Add(panel2);
             panel1.Location = new Point(20, 20);
             panel1.Name = "panel1";
             panel1.Size = new Size(840, 640);
@@ -301,7 +298,9 @@
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(182, 211, 245);
-            ClientSize = new Size(880, 680);
+            ClientSize = new Size(2070, 1424);
+            Controls.Add(panel2);
+            Controls.Add(panel8);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AdmData";
@@ -317,7 +316,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             panel3.ResumeLayout(false);
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 

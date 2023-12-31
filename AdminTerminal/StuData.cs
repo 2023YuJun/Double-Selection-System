@@ -31,6 +31,34 @@ namespace AdminTerminal
         List<List<string>> dataList = new List<List<string>>();
         private const string connectionString = "Server=bzmtxh,top,2433;database=Assign2021;uid=stu;pwd=12344321";
 
+
+        private void StuData_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.AddRange(new object[] { "所有学生信息", "学生学号搜索", "学生姓名搜索",
+                "队伍名称","导师姓名搜索所带领学生", "导师职工号搜索所带领学生" });
+            College_comboBox.Items.AddRange(new object[] { "第二临床医学院", "医学检验学院", "护理学院",
+                "药学院","公共卫生学院", "人文与管理学院","生物医学工程学院","外国语学院" });
+            Grade_comboBox.Items.AddRange(new object[] { "2020级", "2021级", "2022级", "2023级" });
+            Specilaty_comboBox.Items.AddRange(new object[] { "信息管理与信息系统", "生物医学工程学院",
+                "智能医学工程", "数据科学与大数据","信息资源管理" });
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            //撤销
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //删除
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //保存
+        }
+
         private void button8_Click(object sender, EventArgs e)
         {
             // 切换Panel的可见性
@@ -228,18 +256,6 @@ namespace AdminTerminal
 
         }
 
-
-        private void StuData_Load(object sender, EventArgs e)
-        {
-            comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(new object[] { "所有学生信息", "学生学号搜索", "学生姓名搜索",
-                "队伍名称","导师姓名搜索所带领学生", "导师职工号搜索所带领学生" });
-            College_comboBox.Items.AddRange(new object[] { "第二临床医学院", "医学检验学院", "护理学院",
-                "药学院","公共卫生学院", "人文与管理学院","生物医学工程学院","外国语学院" });
-            Grade_comboBox.Items.AddRange(new object[] { "2020级", "2021级", "2022级", "2023级" });
-            Specilaty_comboBox.Items.AddRange(new object[] { "信息管理与信息系统", "生物医学工程学院",
-                "智能医学工程", "数据科学与大数据","信息资源管理" });
-        }
 
 
     }
