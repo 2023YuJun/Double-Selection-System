@@ -246,7 +246,7 @@ namespace StudentTerminal
                 foreach (var choicename in TM.Select(it => it.ChoiceName))
                 {
                     db.Updateable<DSS_3_8_BIOS>()
-                    .SetColumns(it => new DSS_3_8_BIOS { Duty = null })
+                    .SetColumns(it => new DSS_3_8_BIOS { Duty = "" })
                     .Where(it => it.StudentName == choicename)
                     .ExecuteCommand();
                 }
@@ -281,7 +281,7 @@ namespace StudentTerminal
                     .Where(it => it.TeamID == bioteam.TeamID)
                     .ExecuteCommand();
                 db.Updateable<DSS_3_8_BIOS>()
-                    .SetColumns(it => new DSS_3_8_BIOS { Duty = null })
+                    .SetColumns(it => new DSS_3_8_BIOS { Duty = "" })
                     .Where(it => it.Account == UserHelper.user.Account)
                     .ExecuteCommand();
                 MessageBox.Show("你已退出队伍");
@@ -475,7 +475,7 @@ namespace StudentTerminal
                     if (biosEntity != null)
                     {
                         update1 = db.Updateable<DSS_3_8_BIOS>()
-                                    .SetColumns(it => new DSS_3_8_BIOS { Duty = null })
+                                    .SetColumns(it => new DSS_3_8_BIOS { Duty = "" })
                                     .Where(it => it.StudentName == choice.ChoiceName)
                                     .ExecuteCommand();
                     }

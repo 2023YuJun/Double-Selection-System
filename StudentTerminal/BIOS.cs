@@ -26,37 +26,6 @@ namespace StudentTerminal
             InitializeComponent();
         }
         SqlSugarClient db = SqlSugarHelper.GetSugarClient();
-        //private void BIOS_Load(object sender, EventArgs e)
-        //{
-        //    string cmd = "select * from [3_8_BIOS] where Account=@Account";
-        //    SqlParameter[] parameters =
-        //    {
-        //        new SqlParameter("@Account", SqlDbType.NVarChar,50)
-        //    };
-        //    parameters[0].Value = UserHelper.Account;
-        //    SqlDataReader? sdr = null;
-        //    sdr = SqlDbHelper.ExecuteReader(cmd, CommandType.Text, parameters);
-        //    try
-        //    {
-        //        if (sdr.Read())
-        //        {
-        //            textBox1.Text = sdr["StudentName"].ToString();
-        //            textBox2.Text = sdr["Sex"].ToString();
-        //            textBox3.Text = sdr["Account"].ToString();
-        //            textBox4.Text = sdr["Faculties"].ToString();
-        //            textBox5.Text = sdr["Specialty"].ToString();
-        //            textBox6.Text = sdr["Grade"].ToString();
-        //            textBox7.Text = sdr["Class"].ToString();
-        //            textBox8.Text = sdr["YourTeam"].ToString();
-        //            textBox9.Text = sdr["Duty"].ToString();
-        //            textBox10.Text = sdr["Instructor"].ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
         #region sugar用法
         private void BIOS_Load(object sender, EventArgs e)
         {
