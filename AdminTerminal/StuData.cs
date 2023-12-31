@@ -39,6 +39,7 @@ namespace AdminTerminal
             comboBox1.Items.AddRange(new object[] { "所有学生信息", "学生学号搜索", "学生姓名搜索", "队伍名称搜索", "指导老师搜索" });
             LoadDGV();
         }
+        
         #region 第一页面
         //删除
         private void button6_Click(object sender, EventArgs e)
@@ -329,7 +330,7 @@ namespace AdminTerminal
             try
             {
                 List<DSS_3_8_BIOS> data = new List<DSS_3_8_BIOS>();
-
+                List<DSS_3_8_User> users = new List<DSS_3_8_User>();
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
                     if (!row.IsNewRow)
@@ -349,6 +350,20 @@ namespace AdminTerminal
                         };
                         data.Add(item);
                     }
+                    string account = Convert.ToString(row.Cells["Account"].Value);
+                    if (!db.Queryable<DSS_3_8_User>().Any(u => u.Account == account))
+                    {
+                        // 如果 DSS_3_8_User 表中不存在相同 Account 的记录，则创建新的 DSS_3_8_User 对象并添加到列表中
+                        DSS_3_8_User user = new DSS_3_8_User
+                        {
+                            Account = account,
+                            Password = "123",
+                            SecretKey = "",
+                            Grade = "Stu"
+                            // 添加属性赋值
+                        };
+                        users.Add(user);
+                    }
                 }
 
                 if (data.Any())
@@ -356,11 +371,16 @@ namespace AdminTerminal
                     // 插入数据到数据库
                     db.Insertable(data).ExecuteCommand();
 
+                    if (users.Any())
+                    {
+                        db.Insertable(users).ExecuteCommand();
+                    }
                     // 检查表是否存在，避免出现异常
                     if (db.DbMaintenance.IsAnyTable("DSS_3_8_BIOS"))
                     {
                         // 在数据库中删除重复项
-                        db.Ado.ExecuteCommand("WITH cte AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY Year, Major, ID, Name ORDER BY Year) AS rn FROM DSS_3_8_BIOS) DELETE FROM cte WHERE rn > 1");
+                        db.Ado.ExecuteCommand("WITH cte AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY StudentName, Account, Faculties, Specialty, Grade ORDER BY Account) AS rn FROM DSS_3_8_BIOS) DELETE FROM cte WHERE rn > 1");
+                        
                         MessageBox.Show("数据保存成功");
                     }
                     else
