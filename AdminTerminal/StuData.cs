@@ -40,7 +40,7 @@ namespace AdminTerminal
             comboBox1.Items.AddRange(new object[] { "所有学生信息", "学生学号搜索", "学生姓名搜索", "队伍名称搜索", "指导老师搜索" });
             LoadDGV();
         }
-        
+
         #region 第一页面
         //删除
         private void button6_Click(object sender, EventArgs e)
@@ -313,7 +313,7 @@ namespace AdminTerminal
                             // 将不重复项分别绑定到 ComboBox 控件
                             College_comboBox.DataSource = faculties;
                             Grade_comboBox.DataSource = grades;
-                            Specilaty_comboBox.DataSource = specialties; 
+                            Specilaty_comboBox.DataSource = specialties;
                         }
                         else
                         {
@@ -381,7 +381,7 @@ namespace AdminTerminal
                     {
                         // 在数据库中删除重复项
                         db.Ado.ExecuteCommand("WITH cte AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY StudentName, Account ORDER BY Account) AS rn FROM DSS_3_8_BIOS) DELETE FROM cte WHERE rn > 1");
-                        
+
                         MessageBox.Show("数据保存成功");
                     }
                     else
@@ -542,7 +542,7 @@ namespace AdminTerminal
             return distinctValues;
         }
 
-        
+
     }
 }
 

@@ -138,20 +138,20 @@ namespace AdminTerminal
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 var leadTeamValue = dataGridView3.Rows[e.RowIndex].Cells["带领队伍"].Value?.ToString();
-
+                DataTable dt = new DataTable();
+                dt.Columns.Add("TeamID", typeof(int));
+                dt.Columns.Add("队伍名称", typeof(string));
+                dt.Columns.Add("队内人数", typeof(int));
+                dt.Columns.Add("课题名", typeof(string));
+                dt.Columns.Add("课题简介", typeof(string));
+                dt.Columns.Add("文件名", typeof(string));
+                dt.Columns.Add("文件下载路径", typeof(string));
+                dt.Columns.Add("指导老师", typeof(string));
                 if (!string.IsNullOrEmpty(leadTeamValue))
                 {
                     var teamnames = leadTeamValue.Split(' ');
 
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("TeamID", typeof(int));
-                    dt.Columns.Add("队伍名称", typeof(string));
-                    dt.Columns.Add("队内人数", typeof(int));
-                    dt.Columns.Add("课题名", typeof(string));
-                    dt.Columns.Add("课题简介", typeof(string));
-                    dt.Columns.Add("文件名", typeof(string));
-                    dt.Columns.Add("文件下载路径", typeof(string));
-                    dt.Columns.Add("指导老师", typeof(string));
+                    
 
                     foreach (var item in teamnames)
                     {
@@ -163,8 +163,9 @@ namespace AdminTerminal
                         }
                     }
 
-                    dataGridView2.DataSource = dt;
+                    
                 }
+                dataGridView2.DataSource = dt;
             }
         }
 
@@ -199,6 +200,7 @@ namespace AdminTerminal
 
             dataGridView1.DataSource = result1;
             dataGridView3.DataSource = result2;
+
         }
         private void Update_Stu()
         {
