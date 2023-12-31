@@ -95,6 +95,10 @@ namespace AdminTerminal
                 MessageBox.Show($"导出失败：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //导出全部表为Excel
+        }
         private void CreateExcelFile(string filePath, DataTable dataTable)
         {
             string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='{filePath}';Extended Properties='Excel 12.0 Xml;HDR=YES;'";
@@ -143,5 +147,7 @@ namespace AdminTerminal
             }
             return values.TrimEnd(' ', ',');
         }
+
+        
     }
 }
