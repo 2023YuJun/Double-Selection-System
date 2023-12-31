@@ -199,7 +199,7 @@
             button16.Name = "button16";
             button16.Size = new Size(210, 40);
             button16.TabIndex = 4;
-            button16.Text = "队伍信息管理";
+            button16.Text = "管理员信息管理";
             button16.UseVisualStyleBackColor = false;
             button16.Click += button16_Click;
             // 

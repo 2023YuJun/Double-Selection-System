@@ -66,51 +66,51 @@ namespace StudentTerminal
             if (!int.TryParse(teamSizeStr, out int teamSize) && teamSize >= teampersonsize)
             {
                 MessageBox.Show("你无法加入该队伍，人数已达上限");
+                return;
             }
-            else
+            
+            var team = db.Queryable<DSS_3_8_BIOTEAM>().Where(it => it.TeamName == teamName).First();
+            if (team != null)
             {
-                var team = db.Queryable<DSS_3_8_BIOTEAM>().Where(it => it.TeamName == teamName).First();
-                if (team != null)
+                // 递增队伍人数
+                team.Number = (1 + int.Parse(team.Number)).ToString();
+                var affectedRows = db.Updateable(team)
+                                    .Where(it => it.TeamID == team.TeamID)
+                                    .UpdateColumns(it => new { it.Number })
+                                    .ExecuteCommand();
+
+                var whitetext = db.Queryable<DSS_3_8_Choice>()
+                                .Where(it => it.Tag == team.TeamID.ToString() && (it.ChoiceName == null || it.ChoiceName == ""))
+                                .OrderBy(it => it.ChoiceID)
+                                .ToList()
+                                .FirstOrDefault();
+
+                int Update1 = 0;
+
+                if (whitetext != null)
                 {
-                    // 递增队伍人数
-                    team.Number = (1 + int.Parse(team.Number)).ToString();
-                    var affectedRows = db.Updateable(team)
-                                        .Where(it => it.TeamID == team.TeamID)
-                                        .UpdateColumns(it => new { it.Number })
-                                        .ExecuteCommand();
+                    whitetext.ChoiceType = "TM";
+                    whitetext.ChoiceName = UserHelper.bios.StudentName;
 
-                    var whitetext = db.Queryable<DSS_3_8_Choice>()
-                                    .Where(it => it.Tag == team.TeamID.ToString() && (it.ChoiceName == null || it.ChoiceName == ""))
-                                    .OrderBy(it => it.ChoiceID)
-                                    .ToList()
-                                    .FirstOrDefault();
-
-                    int Update1 = 0;
-
-                    if (whitetext != null)
-                    {
-                        whitetext.ChoiceType = "TM";
-                        whitetext.ChoiceName = UserHelper.bios.StudentName;
-
-                        Update1 = db.Updateable(whitetext)
-                            .Where(it => it.ChoiceID == whitetext.ChoiceID) 
+                    Update1 = db.Updateable(whitetext)
+                        .Where(it => it.ChoiceID == whitetext.ChoiceID) 
+                        .ExecuteCommand();
+                }
+                DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();
+                dSS_3_8_BIOS.Duty = "队员";
+                dSS_3_8_BIOS.YourTeam = teamName;
+                int Update = db.Updateable(dSS_3_8_BIOS)
+                            .Where(it => it.Account == UserHelper.bios.Account)
+                            .UpdateColumns(it => new { it.Duty, it.YourTeam })
                             .ExecuteCommand();
-                    }
-                    DSS_3_8_BIOS dSS_3_8_BIOS = new DSS_3_8_BIOS();
-                    dSS_3_8_BIOS.Duty = "队员";
-                    dSS_3_8_BIOS.YourTeam = teamName;
-                    int Update = db.Updateable(dSS_3_8_BIOS)
-                                .Where(it => it.Account == UserHelper.bios.Account)
-                                .UpdateColumns(it => new { it.Duty, it.YourTeam })
-                                .ExecuteCommand();
-                    if (affectedRows > 0 && Update > 0 && Update1 > 0)
-                    {
-                        UserHelper.bios.Duty = "队员";
-                        UserHelper.bios.YourTeam = teamName;
-                        MessageBox.Show("已成功加入队伍");
-                    }
+                if (affectedRows > 0 && Update > 0 && Update1 > 0)
+                {
+                    UserHelper.bios.Duty = "队员";
+                    UserHelper.bios.YourTeam = teamName;
+                    MessageBox.Show("已成功加入队伍");
                 }
             }
+            
         }
 
         private bool HasTeam(string currentUser)
